@@ -1,0 +1,6 @@
+*
+!*.yaml
+!.gitignore
+known_devices.yaml
+secrets.yaml
+
