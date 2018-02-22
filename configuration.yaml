@@ -16,6 +16,13 @@ homeassistant:
 # Show links to resources in log and frontend
 # introduction:
 
+# Controlling garage door opener
+cover:
+  - platform: myq
+    username: !secret myq_user
+    password: !secret myq_pass
+    type: liftmaster
+
 # Enables the frontend
 frontend:
 
@@ -73,3 +80,8 @@ cloud:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+
+# media player entries
+media_player: 
+  - platform: roku
+
