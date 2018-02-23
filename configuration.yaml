@@ -30,7 +30,7 @@ alarm_control_panel:
   password: !secret ss_pass
 
 # Controlling garage door opener
-cover:
+cover Garage:
   - platform: myq
     friendly_name: Garage Door
     username: !secret myq_user
@@ -67,9 +67,9 @@ conversation:
 # Enables support for tracking state changes over time
 history:
 
-# Tracked history is kept for 10 days
+# logging information to the database 
 recorder:
-  purge_keep_days: 10
+  purge_keep_days: 90
 
 # View all events in a logbook
 logbook:
@@ -98,4 +98,8 @@ script: !include scripts.yaml
 # media player entries
 media_player: 
   - platform: roku
+
+wemo:
+  static: 
+    - 192.168.99.105
 
