@@ -1,1 +1,16 @@
-[]
+- action:
+  - alias: ''
+    data: {}
+    service: cover.close_cover
+  alias: Secure Home When Home
+  condition: []
+  id: '1519348624408'
+  trigger:
+  - entity_id: alarm_control_panel.simplisafe
+    from: 'off'
+    platform: state
+    to: armed_home
+  - entity_id: alarm_control_panel.simplisafe
+    from: armed_away
+    platform: state
+    to: armed_home
