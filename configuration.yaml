@@ -16,9 +16,16 @@ homeassistant:
 # Show links to resources in log and frontend
 # introduction:
 
+# Controlling Alarm system
+alarm_control_panel: 
+  platform: simplisafe
+  username: !secret ss_user
+  password: !secret ss_pass
+
 # Controlling garage door opener
 cover:
   - platform: myq
+    friendly_name: Garage Door
     username: !secret myq_user
     password: !secret myq_pass
     type: liftmaster
