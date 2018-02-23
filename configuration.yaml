@@ -83,6 +83,8 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+  - platform: moon
+  - platform: yweather
 
 # Text to speech
 tts:
