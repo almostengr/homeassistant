@@ -16,6 +16,13 @@ homeassistant:
 # Show links to resources in log and frontend
 # introduction:
 
+# DD WRT configuration
+device_tracker:
+  - platform: ddwrt
+    host: 192.168.57.1
+    username: !secret ddrouter_user
+    password: !secret ddrouter_pass
+
 # Controlling Alarm system
 alarm_control_panel: 
   platform: simplisafe
