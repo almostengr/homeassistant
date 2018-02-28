@@ -14,3 +14,23 @@
     from: armed_away
     platform: state
     to: armed_home
+- action:
+  - service: cover.close_cover
+  - service: notify.aeoffice
+  alias: Secure Home
+  condition: []
+  id: '1519606556336'
+  trigger:
+  - entity_id: alarm_control_panel.home_security
+    platform: state
+    to: armed_home
+- action:
+  - service: cover.close_cover
+  - service: switch.turn_off
+  alias: Secure Home-Away
+  condition: []
+  id: '1519775124178'
+  trigger:
+  - entity_id: alarm_control_panel.home_security
+    platform: state
+    to: armed_away
