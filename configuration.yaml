@@ -26,6 +26,7 @@ device_tracker:
 # Controlling Alarm system
 alarm_control_panel: 
   platform: simplisafe
+  name: Home Security
   username: !secret ss_user
   password: !secret ss_pass
 
@@ -36,6 +37,13 @@ cover Garage:
     username: !secret myq_user
     password: !secret myq_pass
     type: liftmaster
+
+# kodi 
+notify: 
+  - platform: kodi
+    name: aeoffice
+    host: aeoffice
+    port: 8080
 
 # Enables the frontend
 frontend:
@@ -97,11 +105,8 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-# media player entries
-media_player: 
-  - platform: roku
-
 wemo:
   static: 
-    - 192.168.99.105
+    - 192.168.57.100
+    - 192.168.57.106
 
