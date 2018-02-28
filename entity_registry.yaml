@@ -1,0 +1,6 @@
+switch.lamp:
+  platform: wemo
+  unique_id: 221611K010051D
+switch.fireplace:
+  platform: wemo
+  unique_id: 221305K010092F
