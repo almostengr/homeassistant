@@ -1,0 +1,14 @@
+'1519613054365':
+  alias: Secure Home
+  sequence:
+  - data: {}
+    service: cover.close_cover
+'1519615641380':
+  alias: Vacation Mode
+  sequence:
+  - alias: ''
+    data: {}
+    service: cover.close_cover
+  - timeout: 03:00
+    wait_template: ''
+  - service: switch.turn_off
