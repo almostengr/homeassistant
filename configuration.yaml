@@ -38,13 +38,6 @@ cover Garage:
     password: !secret myq_pass
     type: liftmaster
 
-# kodi 
-notify: 
-  - platform: kodi
-    name: aeoffice
-    host: aeoffice
-    port: 8080
-
 # Enables the frontend
 frontend:
 
