@@ -85,7 +85,12 @@ sun:
 sensor:
   - platform: yr
   - platform: moon
-  - platform: yweather
+  - platform: wunderground
+    api_key: e68e217a951fd6a7
+    monitored_conditions:
+      - alerts
+      - temp_f
+      - weather
 
 # Text to speech
 tts:
