@@ -2,12 +2,12 @@
   - alias: ''
     data: {}
     service: cover.close_cover
-  alias: Secure Home When Home
+  alias: Secure Home, Stay
   condition: []
   id: '1519348624408'
   trigger:
   - entity_id: alarm_control_panel.simplisafe
-    from: 'off'
+    from: disarmed
     platform: state
     to: armed_home
   - entity_id: alarm_control_panel.simplisafe
@@ -15,22 +15,21 @@
     platform: state
     to: armed_home
 - action:
-  - service: cover.close_cover
-  - service: notify.aeoffice
-  alias: Secure Home
-  condition: []
-  id: '1519606556336'
-  trigger:
-  - entity_id: alarm_control_panel.home_security
-    platform: state
-    to: armed_home
-- action:
-  - service: cover.close_cover
-  - service: switch.turn_off
-  alias: Secure Home-Away
+  - data:
+      entity_id: cover.garage_door_opener
+    service: switch.turn_off
+  - data:
+      entity_id: cover.garage_door_opener
+    service: cover.close_cover
+  alias: Secure Home, Away
   condition: []
   id: '1519775124178'
   trigger:
   - entity_id: alarm_control_panel.home_security
+    from: disarmed
+    platform: state
+    to: armed_away
+  - entity_id: alarm_control_panel.home_security
+    from: armed_home
     platform: state
     to: armed_away
