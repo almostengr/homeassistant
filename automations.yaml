@@ -55,3 +55,24 @@
     platform: numeric_state
   - at: '23:00:00'
     platform: time
+- action:
+  - data:
+      entity_id: switch.lamp
+    service: script.turn_on
+  alias: Night Light
+  condition: []
+  id: '1520389956382'
+  trigger:
+  - event: sunset
+    offset: -00:30:00
+    platform: sun
+- action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_off
+  alias: Night Light Off
+  condition: []
+  id: '1520390163853'
+  trigger:
+  - at: '22:30:00'
+    platform: time
