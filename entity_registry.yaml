@@ -1,7 +1,7 @@
 switch.lamp:
   platform: wemo
   unique_id: 221611K010051D
-  name: Side Lamp
+  name: Upstairs AC
 switch.fireplace:
   platform: wemo
   unique_id: 221305K010092F

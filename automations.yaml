@@ -33,3 +33,25 @@
     from: armed_home
     platform: state
     to: armed_away
+- action:
+  - service: switch.turn_on
+  alias: Turn On Upstairs AC
+  condition: []
+  id: '1520379769803'
+  trigger:
+  - above: '80'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+- action:
+  - data:
+      entity_id: switch.lamp
+    service: switch.turn_off
+  alias: Turn Off Upstairs AC
+  condition: []
+  id: '1520379886802'
+  trigger:
+  - below: '75'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+  - at: '23:00:00'
+    platform: time
