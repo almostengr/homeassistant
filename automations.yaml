@@ -59,15 +59,16 @@
     platform: time
 - action:
   - data:
-      entity_id: switch.lamp
+      entity_id: switch.fireplace
     service: script.turn_on
   alias: Night Light
   condition: []
   id: '1520389956382'
   trigger:
-  - event: sunset
-    offset: -00:30:00
-    platform: sun
+  - entity_id: sun.sun
+    from: above_horizon
+    platform: state
+    to: below_horizon
 - action:
   - data:
       entity_id: switch.fireplace
