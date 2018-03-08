@@ -66,7 +66,7 @@ discovery:
 conversation:
 
 # Enables support for tracking state changes over time
-history:
+# history:
 
 # logging information to the database 
 recorder:
