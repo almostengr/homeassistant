@@ -83,7 +83,7 @@ sun:
 
 # Weather prediction
 sensor:
-  - platform: moon
+# - platform: moon
   - platform: wunderground
     api_key: e68e217a951fd6a7
     monitored_conditions:
