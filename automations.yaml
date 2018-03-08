@@ -36,6 +36,7 @@
 - action:
   - service: switch.turn_on
   alias: Turn On Upstairs AC
+  hide_entity: true
   condition: []
   id: '1520379769803'
   trigger:
@@ -46,6 +47,7 @@
   - data:
       entity_id: switch.lamp
     service: switch.turn_off
+  hide_entity: true
   alias: Turn Off Upstairs AC
   condition: []
   id: '1520379886802'
