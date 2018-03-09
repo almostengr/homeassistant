@@ -35,20 +35,19 @@
     to: armed_away
 - action:
   - service: switch.turn_on
-  alias: Turn On Upstairs AC
+  alias: Turn On Window AC
   hide_entity: true
   condition: []
   id: '1520379769803'
   trigger:
-  - above: '80'
+  - above: '78'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
 - action:
   - data:
       entity_id: switch.lamp
     service: switch.turn_off
-  hide_entity: true
-  alias: Turn Off Upstairs AC
+  alias: Turn Off Window AC
   condition: []
   id: '1520379886802'
   trigger:

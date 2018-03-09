@@ -14,3 +14,4 @@ automation.secure_home_away:
   hidden: true
 automation.secure_home_stay:
   hidden: true
+automation.turn_off_window_ac: {}
