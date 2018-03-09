@@ -62,6 +62,7 @@
       entity_id: switch.fireplace
     service: switch.turn_on
   alias: Night Light On
+  hide_entity: true
   condition: []
   id: '1520389956382'
   trigger:
