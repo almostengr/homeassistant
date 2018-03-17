@@ -16,7 +16,7 @@
     to: armed_home
 - action:
   - data:
-      entity_id: cover.garage_door_opener
+      entity_id: upstairs_ac
     service: switch.turn_off
   - data:
       entity_id: cover.garage_door_opener
@@ -34,7 +34,9 @@
     platform: state
     to: armed_away
 - action:
-  - service: switch.turn_on
+  - data:
+      entity_id: switch.upstairs_ac
+    service: switch.turn_on
   alias: Turn On Window AC
   hide_entity: true
   condition: []
@@ -45,7 +47,7 @@
     platform: numeric_state
 - action:
   - data:
-      entity_id: switch.lamp
+      entity_id: switch.upstairs_ac
     service: switch.turn_off
   alias: Turn Off Window AC
   condition: []
@@ -79,3 +81,18 @@
   trigger:
   - at: '22:35:00'
     platform: time
+- action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_on
+  alias: Garage Home while Secure Home
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_home
+  id: '1521315030622'
+  trigger:
+  - entity_id: cover.garage_door
+    from: closed
+    platform: state
+    to: open
