@@ -107,3 +107,11 @@ wemo:
     - 192.168.57.100
     - 192.168.57.106
 
+media_player:
+  - platform: roku
+    host: 192.168.57.102
+  - platform: roku
+    host: 192.168.57.109
+  - platform: roku
+    host: 192.168.57.115
+
