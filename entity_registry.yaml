@@ -1,4 +1,4 @@
-switch.lamp:
+switch.upstairs_ac:
   platform: wemo
   unique_id: 221611K010051D
   name: Upstairs AC
