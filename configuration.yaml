@@ -106,6 +106,7 @@ wemo:
   static: 
     - 192.168.57.100
     - 192.168.57.106
+    - 192.168.57.112
 
 media_player:
   - platform: roku
