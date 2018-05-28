@@ -11,3 +11,6 @@ Those tutorials are available on my [YouTube channel](https://www.youtube.com/ch
 * MyQ Garage Opener
 * DD-WRT
 
+## Additional Information
+For more information, check you my [YouTube channel](https://www.youtube.com/channel/UC4HCouBLtXD1j1U_17aBqig) or the [Home Assistant](https://home-assistant.io).
+
