@@ -85,7 +85,7 @@ sun:
 sensor:
 # - platform: moon
   - platform: wunderground
-    api_key: e68e217a951fd6a7
+    api_key: !secret weather_api_key
     monitored_conditions:
       - alerts
       - temp_f
