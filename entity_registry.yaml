@@ -1,20 +1,9 @@
 switch.upstairs_ac:
   platform: wemo
   unique_id: 221611K010051D
-  name: Upstairs AC
 switch.fireplace:
   platform: wemo
   unique_id: 221305K010092F
-  name: Fireplace
-media_player.master:
-  platform: roku
-  unique_id: 2YXRU9V7X9
-  name: Master Roku
-media_player.office:
-  platform: roku
-  unique_id: X32JEYOJV0
-  name: Office Roku
-media_player.living:
-  platform: roku
-  unique_id: 1767QAK87A
-
+switch.living_tv_:
+  platform: wemo
+  unique_id: 221634K01029F8

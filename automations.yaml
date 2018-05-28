@@ -42,7 +42,7 @@
   condition: []
   id: '1520379769803'
   trigger:
-  - above: '78'
+  - above: '82'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
 - action:
@@ -53,10 +53,10 @@
   condition: []
   id: '1520379886802'
   trigger:
-  - below: '78'
+  - below: '81'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
-  - at: '23:00:00'
+  - at: '23:45:00'
     platform: time
 - action:
   - data:
@@ -64,7 +64,10 @@
     service: switch.turn_on
   alias: Night Light On
   hide_entity: true
-  condition: []
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_away
   id: '1520389956382'
   trigger:
   - entity_id: sun.sun
