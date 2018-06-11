@@ -19,7 +19,7 @@ homeassistant:
 # DD WRT configuration
 device_tracker:
   - platform: ddwrt
-    host: 192.168.57.1
+    host: !secret ip_router
     username: !secret ddrouter_user
     password: !secret ddrouter_pass
 
@@ -107,12 +107,4 @@ wemo:
     - 192.168.57.100
     - 192.168.57.106
     - 192.168.57.112
-
-media_player:
-  - platform: roku
-    host: 192.168.57.102
-  - platform: roku
-    host: 192.168.57.109
-  - platform: roku
-    host: 192.168.57.115
 
