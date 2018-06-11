@@ -1,0 +1,7 @@
+bedroom1:
+  entities: 
+    - switch.upstairs_ac
+living_room:
+  entities:
+    - switch.fireplace
+    - switch.living_tv_
