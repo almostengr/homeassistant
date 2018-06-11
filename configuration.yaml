@@ -66,7 +66,7 @@ updater:
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 # Enables support for tracking state changes over time
 # history:
@@ -101,6 +101,7 @@ tts:
 # Cloud
 cloud:
 
+# source external files
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
