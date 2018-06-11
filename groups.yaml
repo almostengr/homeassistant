@@ -12,4 +12,5 @@ living_room:
 garage: 
   name: Garage
   view: yes
-
+  entities:
+    - cover.garage_door
