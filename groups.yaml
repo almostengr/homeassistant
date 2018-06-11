@@ -1,7 +1,10 @@
 bedroom1:
+  name: Bedroom 1
   entities: 
     - switch.upstairs_ac
 living_room:
+  name: Living Room
   entities:
     - switch.fireplace
     - switch.living_tv_
+
