@@ -1,3 +1,5 @@
+default_view: 
+  view: no
 living_room:
   name: Living Room
   view: yes
@@ -14,3 +16,15 @@ garage:
   view: yes
   entities:
     - cover.garage_door
+weather:
+  name: Weather
+  view: yes
+  entities:
+    - sensor.pws_weather
+switches:
+  name: Switches
+  view: yes
+  entities:
+    - switch.fireplace
+    - switch.living_tv_
+    - switch.upstairs_ac
