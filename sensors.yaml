@@ -14,5 +14,7 @@
     - visibility
 
 - platform: plex
-  host: media_ip
-  ssl: True
+  host: !secret media_ip
+  port: !secret plex_port
+  name: Plex
+

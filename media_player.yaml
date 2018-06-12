@@ -1,8 +1,11 @@
 - platform: kodi
   host: !secret kodi_office_ip
+  name: Kodi Office
 - platform: kodi
   host: !secret media_ip
+  name: Kodi Media
 - platform: plex
+  name: Plex
   ip_address: !secret media_ip
-  scan_interval: 5
-
+  entity_namespace: plex
+  show_all_controls: True
