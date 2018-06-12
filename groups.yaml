@@ -22,6 +22,10 @@ weather:
     - sensor.pws_temp_f
     - sensor.pws_alerts
     - sun.sun
+    - sensor.yweather_condition
+    - sensor.yweather_humidity
+    - sensor.yweather_temperature
+    - sensor.yweather_visibility
 switches:
   name: Switches
   view: yes
