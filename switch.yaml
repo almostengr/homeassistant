@@ -1,4 +1,4 @@
-wemo:
+- platform: wemo
   static: 
     - !secret wemo_ac_ip
     - !secret wemo_master_ip
