@@ -19,6 +19,9 @@ weather:
   view: yes
   entities:
     - sensor.pws_weather
+    - sensor.pws_temp_f
+    - sensor.pws_alerts
+    - sun.sun
 switches:
   name: Switches
   view: yes
