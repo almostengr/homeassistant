@@ -1,4 +1,16 @@
-living_room:
+default_view: 
+  view: yes
+  name: Home
+  entities:
+    - group.weather2
+    - group.security
+
+security:
+  name: Security
+  entities:
+    - alarm_control_panel.home_security
+
+living_room_view:
   name: Living Room
   view: yes
   entities:
@@ -6,41 +18,39 @@ living_room:
     - switch.living_tv_
     - media_player.kodi_media
 
-office: 
+office_view:
   name: Office
   view: yes
   entities:
     - media_player.kodi_office
 
-bedroom1:
+bedroom1_view:
   name: Bedroom 1
   view: yes
   entities:
     - switch.upstairs_ac
 
-garage: 
+garage_view: 
   name: Garage
   view: yes
   entities:
+    - group.garagedoor
+
+weather2: 
+  name: Weather
+  entities: 
+    - sensor.yweather_temperature
+    - sensor.yweather_condition
+
+garagedoor:
+  name: Garage Door
+  entities:
     - cover.garage_door
 
-weather:
-  name: Weather
+automations:
+  name: Automations
   view: yes
   entities:
-    - sensor.pws_weather
-    - sensor.pws_temp_f
-    - sensor.pws_alerts
-    - sun.sun
-    - sensor.yweather_condition
-    - sensor.yweather_humidity
-    - sensor.yweather_temperature
-    - sensor.yweather_visibility
+    - automation.turn_off_window_ac
+    - automation.turn_on_window_ac
 
-switches:
-  name: Switches
-  view: yes
-  entities:
-    - switch.fireplace
-    - switch.living_tv_
-    - switch.upstairs_ac
