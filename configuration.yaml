@@ -86,13 +86,6 @@ sun:
 
 # Weather prediction
 sensor: !include weather.yaml
-# - platform: moon
-  - platform: wunderground
-    api_key: !secret weather_api_key
-    monitored_conditions:
-      - alerts
-      - temp_f
-      - weather
 
 # Text to speech
 tts:
