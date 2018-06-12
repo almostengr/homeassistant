@@ -99,7 +99,7 @@ tts:
   - platform: google
 
 # Cloud
-cloud:
+# cloud:
 
 # source external files
 group: !include groups.yaml
@@ -112,9 +112,9 @@ wemo:
     - 192.168.57.106
     - 192.168.57.112
 
-# twitter configuration
+# twitter configuration for notifications
 notify:
-  - name: twitter_notify
+  - name: Twitter
     platform: twitter
     consumer_key: !secret twitter_consumer_key
     consumer_secret: !secret twitter_consumer_secret
