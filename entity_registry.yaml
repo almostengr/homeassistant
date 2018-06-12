@@ -7,3 +7,6 @@ switch.fireplace:
 switch.living_tv_:
   platform: wemo
   unique_id: 221634K01029F8
+switch.master_tv:
+  platform: wemo
+  unique_id: 221634K01029DC
