@@ -19,7 +19,7 @@ homeassistant:
 # DD WRT configuration
 device_tracker:
   - platform: ddwrt
-    host: !secret ip_router
+    host: !secret ddrouter_ip
     username: !secret ddrouter_user
     password: !secret ddrouter_pass
 
