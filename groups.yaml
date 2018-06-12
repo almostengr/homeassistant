@@ -35,6 +35,8 @@ office_view:
 bedroom1_view:
   name: Bedroom 1
   view: yes
+  entities:
+    - switch.master_tv
 
 bedroom2_view:
   name: Bedroom 2
