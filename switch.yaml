@@ -1,0 +1,7 @@
+wemo:
+  static: 
+    - !secret wemo_ac_ip
+    - !secret wemo_master_ip
+    - !secret wemo_fireplace_ip
+    - !secret wemo_living_ip
+
