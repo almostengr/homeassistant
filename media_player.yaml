@@ -1,0 +1,5 @@
+- platform: kodi
+  host: !secret kodi_office_ip
+- platform: kodi
+  host: !secret kodi_media_ip
+

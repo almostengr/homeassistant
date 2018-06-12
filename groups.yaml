@@ -4,16 +4,23 @@ living_room:
   entities:
     - switch.fireplace
     - switch.living_tv_
+
+office: 
+  name: Office
+  view: yes
+
 bedroom1:
   name: Bedroom 1
   view: yes
   entities:
     - switch.upstairs_ac
+
 garage: 
   name: Garage
   view: yes
   entities:
     - cover.garage_door
+
 weather:
   name: Weather
   view: yes
@@ -26,6 +33,7 @@ weather:
     - sensor.yweather_humidity
     - sensor.yweather_temperature
     - sensor.yweather_visibility
+
 switches:
   name: Switches
   view: yes
