@@ -25,7 +25,7 @@ living_room_view:
     - switch.fireplace
     - switch.living_tv_
     - media_player.kodi_media
-    - media_player.roku_living
+    - media_player.roku_2_xs
 
 office_view:
   name: Office
@@ -39,7 +39,7 @@ bedroom1_view:
   view: yes
   entities:
     - switch.master_tv
-    - media_player.roku_master
+    - media_player.master_
 
 bedroom2_view:
   name: Bedroom 2
