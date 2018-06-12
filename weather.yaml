@@ -1,8 +1,2 @@
-# Weather information
-- platform: wunderground
-  api_key: !secret weather_api_key
-  monitored_conditions:
-    - alerts
-    - temp_f
-    - weather
+- platform: yweather
 
