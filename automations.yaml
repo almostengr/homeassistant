@@ -99,3 +99,17 @@
     from: closed
     platform: state
     to: open
+
+################################################################################
+- id: notification_restart
+  alias: 'Notification - Home Assistant Restart'
+  initial_state: 'off'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: notify.notify
+    data:
+      message: 'Home Assistant has restarted.'
+################################################################################
+
