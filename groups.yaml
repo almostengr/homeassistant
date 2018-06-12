@@ -4,10 +4,13 @@ living_room:
   entities:
     - switch.fireplace
     - switch.living_tv_
+    - media_player.kodi_media
 
 office: 
   name: Office
   view: yes
+  entities:
+    - media_player.kodi_office
 
 bedroom1:
   name: Bedroom 1
@@ -21,7 +24,7 @@ garage:
   entities:
     - cover.garage_door
 
-weather:
+weather
   name: Weather
   view: yes
   entities:
