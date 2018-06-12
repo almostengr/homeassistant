@@ -84,15 +84,6 @@ logbook:
 # Track the sun
 sun:
 
-# Sensors
-sensor: !include sensors.yaml
-
-weblink: !include weblink.yaml
-
-# Weather information
-weather: !include weather.yaml
-
-
 # Text to speech
 tts:
   - platform: google
@@ -104,6 +95,9 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+sensor: !include sensors.yaml
+weblink: !include weblink.yaml
+weather: !include weather.yaml
 
 wemo:
   static: 
