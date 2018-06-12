@@ -87,8 +87,11 @@ sun:
 # Sensors
 sensor: !include sensors.yaml
 
+weblink: !include weblink.yaml
+
 # Weather information
 weather: !include weather.yaml
+
 
 # Text to speech
 tts:

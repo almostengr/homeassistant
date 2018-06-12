@@ -1,0 +1,7 @@
+# Weblink configuration 
+entities:
+  - name: Plex
+    url: http://media:32400
+  - name: FarmOS
+    url: http://thepost/farmosweb
+
