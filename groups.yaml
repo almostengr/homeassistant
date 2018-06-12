@@ -4,6 +4,14 @@ default_view:
   entities:
     - group.weather2
     - group.security
+    - group.weblinks
+
+weblinks:
+  name: Links
+  entities:
+    - weblink.plex
+    - weblink.farmos
+    - weblink.intranet
 
 security:
   name: Security

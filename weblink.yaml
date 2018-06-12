@@ -4,4 +4,6 @@ entities:
     url: http://media:32400
   - name: FarmOS
     url: http://thepost/farmosweb
+  - name: Intranet
+    url: http://thepost/intranet
 
