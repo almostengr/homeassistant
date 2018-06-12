@@ -14,6 +14,7 @@
     from: armed_away
     platform: state
     to: armed_home
+################################################################################
 - action:
   - data:
       entity_id: upstairs_ac
@@ -33,6 +34,7 @@
     from: armed_home
     platform: state
     to: armed_away
+################################################################################
 - action:
   - data:
       entity_id: switch.upstairs_ac
@@ -45,6 +47,7 @@
   - above: '82'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
+################################################################################
 - action:
   - data:
       entity_id: switch.upstairs_ac
@@ -58,6 +61,7 @@
     platform: numeric_state
   - at: '23:45:00'
     platform: time
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
@@ -74,6 +78,7 @@
     from: above_horizon
     platform: state
     to: below_horizon
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
@@ -84,10 +89,14 @@
   trigger:
   - at: '22:35:00'
     platform: time
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
+  - service: notify.notify
+    data:
+      message: Garage door has opened while secured!
   alias: Garage Home while Secure Home
   condition:
   - condition: state
@@ -99,11 +108,10 @@
     from: closed
     platform: state
     to: open
-
 ################################################################################
 - id: notification_restart
   alias: 'Notification - Home Assistant Restart'
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     platform: homeassistant
     event: start
