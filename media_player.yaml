@@ -1,5 +1,8 @@
 - platform: kodi
   host: !secret kodi_office_ip
 - platform: kodi
-  host: !secret kodi_media_ip
+  host: !secret media_ip
+- platform: plex
+  ip_address: !secret media_ip
+  scan_interval: 5
 

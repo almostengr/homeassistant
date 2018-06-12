@@ -13,3 +13,6 @@
     - humidity
     - visibility
 
+- platform: plex
+  host: media_ip
+  ssl: True
