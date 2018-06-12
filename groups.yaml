@@ -27,6 +27,10 @@ office_view:
 bedroom1_view:
   name: Bedroom 1
   view: yes
+
+bedroom2_view:
+  name: Bedroom 2
+  view: yes
   entities:
     - switch.upstairs_ac
 

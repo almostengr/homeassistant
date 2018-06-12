@@ -3,4 +3,3 @@ sensor.yr_symbol:
 cover.garage_door_opener:
   device_class: garage
   friendly_name: Garage Door
-  homebridge_name: Garage
