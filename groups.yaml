@@ -51,6 +51,7 @@ automations:
   name: Automations
   view: yes
   entities:
+    - automation.notification__home_assistant_restart
     - automation.turn_off_window_ac
     - automation.turn_on_window_ac
 

@@ -4,14 +4,3 @@ cover.garage_door_opener:
   device_class: garage
   friendly_name: Garage Door
   homebridge_name: Garage
-automation.night_light_off:
-  hidden: true
-automation.night_light_on:
-  hidden: true
-group.all_automations:
-  hidden: true
-automation.secure_home_away:
-  hidden: true
-automation.secure_home_stay:
-  hidden: true
-automation.turn_off_window_ac: {}
