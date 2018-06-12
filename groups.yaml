@@ -24,7 +24,7 @@ garage:
   entities:
     - cover.garage_door
 
-weather
+weather:
   name: Weather
   view: yes
   entities:
