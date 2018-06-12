@@ -100,7 +100,6 @@ weblink: !include weblink.yaml
 weather: !include weather.yaml
 media_player: !include media_player.yaml
 wemo: !include wemo.yaml
-roku: !include roku.yaml
 
 # twitter configuration for notifications
 notify:

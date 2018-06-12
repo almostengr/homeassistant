@@ -1,4 +1,0 @@
-- host: !secret roku_master
-- host: !secret roku_office
-- host: !secret roku_living
-

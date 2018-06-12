@@ -9,3 +9,16 @@
   ip_address: !secret media_ip
   entity_namespace: plex
   show_all_controls: True
+
+- platform: roku
+  host: !secret roku_master
+  name: Roku Master
+
+- platform: roku
+  name: Roku Office
+  host: !secret roku_office
+
+- platform: roku
+  name: Roku Living
+  host: !secret roku_living
+
