@@ -11,8 +11,8 @@
   show_all_controls: True
 
 - platform: roku
-  host: !secret roku_master
-  name: Roku Master
+  host: !secret roku_bedroom1
+  name: Roku Bedroom 1
 
 - platform: roku
   name: Roku Office
