@@ -43,13 +43,13 @@
   region: 'US'
   name: BHM to MGM
 
-- platform: waze_travel_times
+- platform: waze_travel_time
   origin: Atlanta, GA
   destination: Montgomery, AL
   region: 'US'
   name: ATL to MGM
 
-- platform: waze_travel_times
+- platform: waze_travel_time
   origin: Atlanta, GA
   destination: Birmingham, AL
   region: 'US'
