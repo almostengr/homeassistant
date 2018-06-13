@@ -18,3 +18,7 @@
   port: !secret plex_port
   name: Plex
 
+- platform: time_date
+  display_options:
+  - 'date_time'
+
