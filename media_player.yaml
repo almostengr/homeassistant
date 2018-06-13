@@ -1,9 +1,17 @@
 - platform: kodi
   host: !secret kodi_office_ip
   name: Kodi Office
+- platform: roku
+  name: Roku Office
+  host: !secret roku_office
+
 - platform: kodi
   host: !secret media_ip
   name: Kodi Media
+- platform: roku
+  name: Roku Living
+  host: !secret roku_living
+
 - platform: plex
   name: Plex
   ip_address: !secret media_ip
@@ -13,12 +21,4 @@
 - platform: roku
   host: !secret roku_bedroom1
   name: Roku Bedroom 1
-
-- platform: roku
-  name: Roku Office
-  host: !secret roku_office
-
-- platform: roku
-  name: Roku Living
-  host: !secret roku_living
 
