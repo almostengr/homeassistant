@@ -1,6 +1,7 @@
 *
 !*.yaml
 !.gitignore
+entity_registry.yaml
 known_devices.yaml
 secrets.yaml
 
