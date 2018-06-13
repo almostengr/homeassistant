@@ -121,8 +121,8 @@
       message: 'Home Assistant has restarted.'
 
 ################################################################################
-- id: power_down
-  alias: 'Power Down'
+- id: power_down_when_away
+  alias: 'Power Down When Away'
   initial_state: 'on'
   trigger:
   - entity_id: alarm_control_panel.simplisafe
@@ -141,3 +141,4 @@
       entity_id: switch.living_tv_
     service: switch.turn_off
 ################################################################################
+
