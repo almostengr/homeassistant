@@ -24,6 +24,7 @@
 
 - platform: cpuspeed
 
+# Travel Times
 - platform: waze_travel_time
   origin: Montgomery, AL
   destination: Troy, AL
@@ -31,20 +32,38 @@
   name: MGM to Troy
 
 - platform: waze_travel_time
+  origin: Troy, AL
+  destination: Montgomery, AL
+  region: 'US'
+  name: Troy to MGM
+
+- platform: waze_travel_time
   origin: Birmingham, AL
   destination: Montgomery, AL
   region: 'US'
   name: BHM to MGM
 
-- platform: waze_travel_time
-  origin: Birmingham, AL
-  destination: Tuscaloosa, AL
+- platform: waze_travel_times
+  origin: Atlanta, GA
+  destination: Montgomery, AL
   region: 'US'
-  name: BHM to Tuscaloosa
+  name: ATL to MGM
+
+- platform: waze_travel_times
+  origin: Atlanta, GA
+  destination: Birmingham, AL
+  region: 'US'
+  name: ATL to BHM
 
 - platform: waze_travel_time
   origin: Montgomery, AL
   destination: Gulf Shores, AL
   region: 'US'
   name: MGM to Gulf Shores
+
+- platform: waze_travel_time
+  origin: Troy, AL
+  destination: Panama City Beach, FL
+  region: 'US'
+  name: Troy to PCB
 
