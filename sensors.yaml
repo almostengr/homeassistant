@@ -28,9 +28,23 @@
   origin: Montgomery, AL
   destination: Troy, AL
   region: 'US'
+  name: MGM to Troy
 
 - platform: waze_travel_time
   origin: Birmingham, AL
   destination: Montgomery, AL
   region: 'US'
+  name: BHM to MGM
+
+- platform: waze_travel_time
+  origin: Birmingham, AL
+  destination: Tuscaloosa, AL
+  region: 'US'
+  name: BHM to Tuscaloosa
+
+- platform: waze_travel_time
+  origin: Montgomery, AL
+  destination: Gulf Shores, AL
+  region: 'US'
+  name: MGM to Gulf Shores
 
