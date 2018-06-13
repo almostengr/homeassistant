@@ -21,3 +21,6 @@ tutorials available on the [Home Assistant](https://home-assistant.io) website.
 * [Plex](https://www.plex.tv)
 * DD-WRT
 
+## Inferface Screenshots
+![UI](screenshots/living_room.png)
+
