@@ -76,10 +76,9 @@ travel_view:
   name: Travel Times
   view: yes
   entities:
-    - sensor.waze_travel_time_2
-    - sensor.waze_travel_time
-    - sensor.waze_travel_time_3
-    - sensor.waze_travel_time_4
-    - sensor.waze_travel_time_5
+    - sensor.bhm_to_mgm
+    - sensor.bhm_to_tuscaloosa
+    - sensor.mgm_to_gulf_shores
+    - sensor.mgm_to_troy
 
 
