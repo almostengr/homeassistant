@@ -1,6 +1,6 @@
 # Home Assistant Configuration by Almost Engineer
-Custom configuration and automations for [Home Assistant](https://home-assistant.io).
-The documentation for Home Assistant can be somewhat daunting for the beginnger. By providing my
+The documentation for [Home Assistant](https://home-assistant.io) can be somewhat daunting 
+for the beginnger. By providing my
 configuration, hopefully it will assist you and others with their configuraiton of their own instance.
 
 ## Tutorials
