@@ -24,3 +24,13 @@
 
 - platform: cpuspeed
 
+- platform: waze_travel_time
+  origin: Montgomery, AL
+  destination: Troy, AL
+  region: 'US'
+
+- platform: waze_travel_time
+  origin: Birmingham, AL
+  destination: Montgomery, AL
+  region: 'US'
+
