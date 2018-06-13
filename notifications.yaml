@@ -1,0 +1,15 @@
+- name: Twitter
+  platform: twitter
+  consumer_key: !secret twitter_consumer_key
+  consumer_secret: !secret twitter_consumer_secret
+  access_token: !secret twitter_access_token
+  access_token_secret: !secret twitter_access_secret
+
+- platform: kodi
+  name: notify.media
+  host: !secret media_ip
+
+- platform: kodi
+  name: notify.office
+  host: !secret kodi_office_ip
+
