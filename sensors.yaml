@@ -22,3 +22,5 @@
   display_options:
   - 'date_time'
 
+- platform: cpuspeed
+
