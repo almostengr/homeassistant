@@ -18,7 +18,7 @@ tutorials available on the [Home Assistant](https://home-assistant.io) website.
 * Roku 
 
 ### Software
-* [Home Assistant 0.64](https://www.home-assistant.io)
+* [Home Assistant 0.71](https://www.home-assistant.io)
 * Kodi
 * [Plex](https://www.plex.tv)
 * DD-WRT
