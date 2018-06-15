@@ -6,6 +6,7 @@
     - temp_f
     - weather
 
+# Yahoo Weather
 - platform: yweather
   monitored_conditions:
     - weather
@@ -13,18 +14,20 @@
     - humidity
     - visibility
 
+# Plex Media Server activity
 - platform: plex
   host: !secret media_ip
   port: !secret plex_port
   name: Plex
 
+# Current Date and Time
 - platform: time_date
   display_options:
   - 'date_time'
 
 - platform: cpuspeed
 
-# Travel Times
+# Travel Times # Travel Times # Travel Times # Travel Times #
 - platform: waze_travel_time
   origin: Montgomery, AL
   destination: Troy, AL
@@ -66,4 +69,10 @@
   destination: Panama City Beach, FL
   region: 'US'
   name: Troy to PCB
+
+- platform: waze_travel_time
+  origin: Birmingham, AL
+  destination: Nashville, TN
+  region: 'US'
+  name: BHM to BNA (Nashville)
 
