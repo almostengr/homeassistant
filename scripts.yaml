@@ -8,4 +8,58 @@ kodi_notification:
         displaytime: 20000
         icon: "warning"
 
+# test global notification
+test_global_notification:
+global_notification:
+  sequence:
+  - service: notify.kodi_office
+    data:
+      title: "Home Assistant"
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+  - service: notify.kodi_media
+    data:
+      title: "Home Assistant"
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+  - service: notify.twitter
+    data:
+      message: "{{ message }}"
+
+# send notification to internal clients
+internal_notification:
+  sequence: 
+  - service: notify.kodi_office
+    data:
+      title: "Home Assistant" 
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+  - service: notify.kodi_media
+    data:
+      title: "Home Assistant"
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+
+# send notification to all clients
+global_notification:
+  sequence:
+  - service: notify.kodi_office
+    data:
+      title: "Home Assistant"
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+  - service: notify.kodi_media
+    data:
+      title: "Home Assistant"
+      message: "{{ message }}"
+      data:
+        displaytime: 5000
+  - service: notify.twitter
+    data:
+      message: "{{ message }}"
 
