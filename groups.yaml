@@ -81,6 +81,7 @@ travel_view:
     - sensor.atl_to_mgm
     - sensor.bhm_to_mgm
 #    - sensor.bhm_to_tuscaloosa
+    - sensor.bhm_to_bna_nashville
     - sensor.mgm_to_gulf_shores
     - sensor.mgm_to_troy
     - sensor.troy_to_mgm
