@@ -15,6 +15,23 @@
     platform: state
     to: armed_home
 ################################################################################
+- id: garage_state_change
+  alias: Garage State Change
+  trigger:
+  - entity_id: cover.garage_door
+    from: open
+    to: closed
+    platform: state
+  - entity_id: cover.garage_door
+    from: closed
+    to: open
+    platform: state
+  action:
+  - data:
+      message: 'Garage door opened/closed'
+    service: notify.internal_notification
+  inital_state: 'on'
+################################################################################
 - action:
   - data:
       entity_id: upstairs_ac
