@@ -103,4 +103,5 @@ weather: !include weather.yaml
 media_player: !include media_player.yaml
 wemo: !include wemo.yaml
 notify: !include notifications.yaml
+input_boolean: !include input_boolean.yaml
 

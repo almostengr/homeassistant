@@ -30,7 +30,7 @@
   - data:
       message: 'Garage door opened/closed'
     service: notify.internal_notification
-  inital_state: 'on'
+  initial_state: 'on'
 ################################################################################
 - action:
   - data:
@@ -135,7 +135,7 @@
   - data:
       message: 'Home Assistant has restarted.'
     service: script.internal_notification
-  initial_state: 'on'
+#  initial: 'on'
 ################################################################################
 - id: power_down_when_away
   alias: Power Down When Away
