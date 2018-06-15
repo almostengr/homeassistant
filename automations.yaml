@@ -96,7 +96,7 @@
     service: switch.turn_on
   - service: script.global_notification
     data:
-      message: Garage door has opened while secured!
+      message: 'Garage door has opened while secured!'
   alias: Garage Home while Secure Home
   condition:
   - condition: state
@@ -116,7 +116,7 @@
     platform: homeassistant
   action:
   - data:
-      message: Home Assistant has restarted.
+      message: 'Home Assistant has restarted.'
     service: script.internal_notification
   initial_state: 'on'
 ################################################################################
@@ -140,7 +140,7 @@
       entity_id: switch.living_tv_
     service: switch.turn_off
   - data:
-      message: Power down has completed
+      message: 'Power down has completed'
     service: script.global_notification
 ################################################################################
 - alias: Update notifications

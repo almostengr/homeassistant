@@ -12,53 +12,41 @@ kodi_notification:
 test_global_notification:
   sequence:
   - service: notify.kodi_office
-    data:
+    data_template:
       title: "Home Assistant"
-      message: "{{ message }}"
-      data:
-        displaytime: 5000
+      message: "Test notification"
   - service: notify.kodi_media
     data:
       title: "Home Assistant"
-      message: "{{ message }}"
-      data:
-        displaytime: 5000
+      message: "Test notification"
   - service: notify.twitter
     data:
-      message: "{{ message }}"
+      message: "Test notification"
 
 # send notification to internal clients
 internal_notification:
   sequence: 
   - service: notify.kodi_office
-    data:
+    data_template:
       title: "Home Assistant" 
       message: "{{ message }}"
-      data:
-        displaytime: 5000
   - service: notify.kodi_media
-    data:
+    data_template:
       title: "Home Assistant"
       message: "{{ message }}"
-      data:
-        displaytime: 5000
 
 # send notification to all clients
 global_notification:
   sequence:
   - service: notify.kodi_office
-    data:
+    data_template:
       title: "Home Assistant"
       message: "{{ message }}"
-      data:
-        displaytime: 5000
   - service: notify.kodi_media
-    data:
+    data_template:
       title: "Home Assistant"
       message: "{{ message }}"
-      data:
-        displaytime: 5000
   - service: notify.twitter
-    data:
+    data_template:
       message: "{{ message }}"
 
