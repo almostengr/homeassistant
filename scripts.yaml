@@ -10,7 +10,6 @@ kodi_notification:
 
 # test global notification
 test_global_notification:
-global_notification:
   sequence:
   - service: notify.kodi_office
     data:

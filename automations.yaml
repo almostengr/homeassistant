@@ -94,7 +94,7 @@
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
-  - service: notify.notify
+  - service: script.global_notification
     data:
       message: Garage door has opened while secured!
   alias: Garage Home while Secure Home
@@ -121,7 +121,7 @@
     service: notify.kodi_office
   - data:
       message: Home Assistant has restarted.
-    service: notify.twitter
+    service: script.internal_notification
   initial_state: 'on'
 ################################################################################
 - id: power_down_when_away
@@ -143,5 +143,8 @@
   - data:
       entity_id: switch.living_tv_
     service: switch.turn_off
+  - data:
+      message: Power down has completed
+    service: script.global_notification
 ################################################################################
 ################################################################################
