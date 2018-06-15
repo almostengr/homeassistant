@@ -117,10 +117,6 @@
   action:
   - data:
       message: Home Assistant has restarted.
-      title: Home Assistant
-    service: notify.kodi_office
-  - data:
-      message: Home Assistant has restarted.
     service: script.internal_notification
   initial_state: 'on'
 ################################################################################
