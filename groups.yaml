@@ -5,6 +5,7 @@ default_view:
     - group.weather2
     - group.security
     - group.weblinks
+    - group.modes
 
 weblinks:
   name: Links
@@ -80,5 +81,11 @@ travel_view:
     - sensor.bhm_to_tuscaloosa
     - sensor.mgm_to_gulf_shores
     - sensor.mgm_to_troy
+
+modes:
+  name: Modes
+  entities:
+    - input_boolean.vacation_mode
+    - input_boolean.night_mode
 
 
