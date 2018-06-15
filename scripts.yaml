@@ -1,0 +1,11 @@
+kodi_notification:
+  sequence:
+  - service: notify.kodi_office
+    data:
+      title: "Home Assistant"
+      message: "Message to KODI from Home Assistant!"
+      data:
+        displaytime: 20000
+        icon: "warning"
+
+

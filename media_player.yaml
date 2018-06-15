@@ -1,5 +1,5 @@
 - platform: kodi
-  host: !secret kodi_office_ip
+  host: !secret office_ip
   name: Kodi Office
 - platform: roku
   name: Roku Office

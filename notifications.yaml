@@ -1,3 +1,7 @@
+- name: logfile
+  platform: file
+  filename: /var/tmp/ha_notify.log
+
 - name: Twitter
   platform: twitter
   consumer_key: !secret twitter_consumer_key
@@ -6,10 +10,10 @@
   access_token_secret: !secret twitter_access_secret
 
 - platform: kodi
-  name: notify.media
+  name: kodi_media
   host: !secret media_ip
 
 - platform: kodi
-  name: notify.office
-  host: !secret kodi_office_ip
+  name: kodi_office
+  host: !secret office_ip
 
