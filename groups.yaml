@@ -77,10 +77,14 @@ travel_view:
   name: Travel Times
   view: yes
   entities:
+    - sensor.atl_to_bhm
+    - sensor.atl_to_mgm
     - sensor.bhm_to_mgm
-    - sensor.bhm_to_tuscaloosa
+#    - sensor.bhm_to_tuscaloosa
     - sensor.mgm_to_gulf_shores
     - sensor.mgm_to_troy
+    - sensor.troy_to_mgm
+    - sensor.troy_to_pcb
 
 modes:
   name: Modes
