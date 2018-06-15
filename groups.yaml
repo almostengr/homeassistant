@@ -86,6 +86,7 @@ travel_view:
     - sensor.mgm_to_troy
     - sensor.troy_to_mgm
     - sensor.troy_to_pcb
+    - sensor.troy_to_dothan
 
 modes:
   name: Modes

@@ -71,6 +71,12 @@
   name: Troy to PCB
 
 - platform: waze_travel_time
+  origin: Troy, AL
+  destination: Dothan, AL
+  region: 'US'
+  name: Troy to Dothan
+
+- platform: waze_travel_time
   origin: Birmingham, AL
   destination: Nashville, TN
   region: 'US'
