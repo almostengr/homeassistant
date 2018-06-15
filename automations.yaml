@@ -14,6 +14,7 @@
     from: armed_away
     platform: state
     to: armed_home
+################################################################################
 - action:
   - data:
       entity_id: upstairs_ac
@@ -34,6 +35,7 @@
     platform: state
     to: armed_away
 - action:
+################################################################################
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_on
@@ -45,6 +47,7 @@
   - above: '82'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
+################################################################################
 - action:
   - data:
       entity_id: switch.upstairs_ac
@@ -58,6 +61,7 @@
     platform: numeric_state
   - at: '23:45:00'
     platform: time
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
@@ -74,6 +78,7 @@
     from: above_horizon
     platform: state
     to: below_horizon
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
@@ -84,6 +89,7 @@
   trigger:
   - at: '22:35:00'
     platform: time
+################################################################################
 - action:
   - data:
       entity_id: switch.fireplace
@@ -102,6 +108,7 @@
     from: closed
     platform: state
     to: open
+################################################################################
 - id: notification_restart
   alias: Notification - Home Assistant Restart
   trigger:
@@ -111,12 +118,12 @@
   - data:
       message: Home Assistant has restarted.
       title: Home Assistant
-    service: notify.office
+    service: notify.kodi_office
   - data:
       message: Home Assistant has restarted.
-      title: Home Assistant
-    service: notify.notifyoffice
+    service: notify.twitter
   initial_state: 'on'
+################################################################################
 - id: power_down_when_away
   alias: Power Down When Away
   initial_state: 'on'
@@ -136,3 +143,5 @@
   - data:
       entity_id: switch.living_tv_
     service: switch.turn_off
+################################################################################
+################################################################################

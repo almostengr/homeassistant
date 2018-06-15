@@ -2,7 +2,7 @@
   platform: file
   filename: /var/tmp/ha_notify.log
 
-- name: Twitter
+- name: twitter
   platform: twitter
   consumer_key: !secret twitter_consumer_key
   consumer_secret: !secret twitter_consumer_secret
