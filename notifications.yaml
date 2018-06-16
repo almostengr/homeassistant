@@ -1,6 +1,14 @@
+################################################################################
+# log file notification
+################################################################################
+
 - name: logfile
   platform: file
   filename: /var/tmp/ha_notify.log
+
+################################################################################
+# twitter notification
+################################################################################
 
 - name: twitter
   platform: twitter
@@ -8,6 +16,10 @@
   consumer_secret: !secret twitter_consumer_secret
   access_token: !secret twitter_access_token
   access_token_secret: !secret twitter_access_secret
+
+################################################################################
+# kodi notification
+################################################################################
 
 - platform: kodi
   name: kodi_media

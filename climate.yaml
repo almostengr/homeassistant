@@ -1,6 +1,9 @@
 # configuration for future smart thermostat
 
+################################################################################
 # configuration for cooling
+################################################################################
+
 - platform: generic_thermostat 
   name: Main Cooling
   heater: switch.main_cooling
@@ -13,8 +16,11 @@
   hot_tolerance: 1
   initial_operation_mode: auto
   away_temp: 82
+
 ################################################################################
 # configuration for heating
+################################################################################
+
 - platform: generic_thermostat
   name: Main Heating
   heater: switch.main_heating

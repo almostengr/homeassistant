@@ -1,3 +1,7 @@
+################################################################################
+# Close garage door when alarm set to home
+################################################################################
+
 - id: '1519348624408'
   alias: Secure Home, Stay
   trigger:
@@ -16,6 +20,7 @@
     service: cover.close_cover
 
 ################################################################################
+# Send notification when garage door is open or closed
 ################################################################################
 
 - id: garage_state_change
@@ -30,25 +35,18 @@
     from: closed
     to: open
     platform: state
+  condition: []
   action:
   - data:
       message: 'Garage door opened/closed'
     service: script.internal_notification
 
-
 ################################################################################
+# Close garage door when alarm is set to away
 ################################################################################
-
-- action:
-  - data:
-      entity_id: upstairs_ac
-    service: switch.turn_off
-  - data:
-      entity_id: cover.garage_door_opener
-    service: cover.close_cover
+ 
+- id: '1519775124178'
   alias: Secure Home, Away
-  condition: []
-  id: '1519775124178'
   trigger:
   - entity_id: alarm_control_panel.home_security
     from: disarmed
@@ -58,65 +56,74 @@
     from: armed_home
     platform: state
     to: armed_away
-
-################################################################################
-################################################################################
-
-- action:
-  - data:
-      entity_id: switch.upstairs_ac
-    service: switch.turn_on
-  alias: Turn On Window AC
-  hide_entity: true
   condition: []
-  id: '1520379769803'
+  action:
+  - data:
+      entity_id: cover.garage_door_opener
+    service: cover.close_cover
+
+################################################################################
+# Turn on window AC based on outdoor temperature
+################################################################################
+ 
+- id: '1520379769803'
+  alias: Turn On Window AC
+#  hide_entity: true
   trigger:
   - above: '82'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
-
-################################################################################
-################################################################################
-
-- action:
+  condition: []
+  action:
   - data:
       entity_id: switch.upstairs_ac
-    service: switch.turn_off
+    service: switch.turn_on
+
+################################################################################
+# Turn off window AC at 11:45 PM or when temp is below 81F
+################################################################################
+
+- id: '1520379886802'
   alias: Turn Off Window AC
-  condition: []
-  id: '1520379886802'
   trigger:
   - below: '81'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
   - at: '23:45:00'
     platform: time
-
-################################################################################
-################################################################################
-
-- action:
+  condition: []
+  action:
   - data:
-      entity_id: switch.fireplace
-    service: switch.turn_on
+      entity_id: switch.upstairs_ac
+    service: switch.turn_off
+
+################################################################################
+# Turn light on at sunset when alarm set to away
+################################################################################
+
+- id: '1520389956382'
   alias: Night Light On
   hide_entity: true
-  condition:
-  - condition: state
-    entity_id: alarm_control_panel.home_security
-    state: armed_away
-  id: '1520389956382'
   trigger:
   - entity_id: sun.sun
     from: above_horizon
     platform: state
     to: below_horizon
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_away
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_on
 
 ################################################################################
+# Night Light Off
 ################################################################################
 
-- alias: Night Light Off
-  id: '1520390163853'
+- id: '1520390163853'
+  alias: Night Light Off
   trigger:
   - at: '22:35:00'
     platform: time
@@ -127,32 +134,35 @@
     service: switch.turn_off
 
 ################################################################################
+# Garage Home while Secure Home
 ################################################################################
 
-- action:
+- id: '1521315030622'
+  alias: Garage Home while Secure Home
+  trigger:
+  - entity_id: cover.garage_door
+    from: closed
+    platform: state
+    to: open
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_home
+  action:
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
   - service: script.global_notification
     data:
       message: 'Garage door has opened while secured!'
-  alias: Garage Home while Secure Home
-  condition:
-  - condition: state
-    entity_id: alarm_control_panel.home_security
-    state: armed_home
-  id: '1521315030622'
-  trigger:
-  - entity_id: cover.garage_door
-    from: closed
-    platform: state
-    to: open
 
 ################################################################################
+# Notification - Home Assistant Restart
 ################################################################################
 
 - id: notification_restart
   alias: Notification - Home Assistant Restart
+#  initial: 'on'
   trigger:
   - event: start
     platform: homeassistant
@@ -160,13 +170,14 @@
   - data:
       message: 'Home Assistant has restarted.'
     service: script.internal_notification
-#  initial: 'on'
+
 ################################################################################
+# Power Down When Away
 ################################################################################
 
 - id: power_down_when_away
   alias: Power Down When Away
-  initial_state: 'on'
+  initial_state: True
   trigger:
   - entity_id: alarm_control_panel.simplisafe
     from: disarmed
@@ -188,9 +199,11 @@
     service: script.global_notification
 
 ################################################################################
+# Update notifications
 ################################################################################
 
-- alias: Update notifications
+- id: update_notifications
+  alias: Update notifications
   trigger:
     - platform: state
       entity_id: updater.updater
@@ -201,6 +214,7 @@
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 
 ################################################################################
+# Automatic Theme Change based on time of day
 ################################################################################
 
 - id: automatic_theme_change
@@ -226,6 +240,7 @@
           {% endif %}
 
 ################################################################################
+# Turn on Night Light when sun sets
 ################################################################################
 
 - id: turn_on_night_light

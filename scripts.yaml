@@ -8,7 +8,10 @@ kodi_notification:
         displaytime: 20000
         icon: "warning"
 
+################################################################################
 # test global notification
+################################################################################
+
 test_global_notification:
   sequence:
   - service: notify.kodi_office
@@ -23,7 +26,10 @@ test_global_notification:
     data:
       message: "Test notification"
 
+################################################################################
 # send notification to internal clients
+################################################################################
+
 internal_notification:
   sequence: 
   - service: notify.kodi_office
@@ -35,7 +41,10 @@ internal_notification:
       title: "Home Assistant"
       message: "{{ message }}"
 
+################################################################################
 # send notification to all clients
+################################################################################
+
 global_notification:
   sequence:
   - service: notify.kodi_office
@@ -49,4 +58,5 @@ global_notification:
   - service: notify.twitter
     data_template:
       message: "{{ message }}"
+
 

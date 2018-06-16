@@ -1,3 +1,7 @@
+################################################################################
+# dark theme
+################################################################################
+
 dark_theme:
   # Main colors
   primary-color: '#5294E2'          # Header
@@ -22,6 +26,11 @@ dark_theme:
   paper-listbox-background-color: '#2E333A'        # Navigation menu background
   paper-grey-50: 'var(--primary-text-color)'
   paper-grey-200: '#414A59'           # Navigation menu selection
+
+
+################################################################################
+# night theme
+################################################################################
 
 night:
   # MyVariables
