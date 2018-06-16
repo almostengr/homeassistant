@@ -171,40 +171,24 @@
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 ################################################################################
 
-- id: dark_theme
-  alias: 'Set dark theme'
-  initial_state: True
+- id: automatic_theme_change
+  initia_state: True
+  alias: Automatic Theme Change
   trigger:
-#   - platform: homeassistant
-#     event: start
-  action:
-   service: frontend.set_theme
-   data:
-     name: night
-
-- id: night_theme_at_dark
-  alias: 'Night Theme During Dark'
-  initial_state: True
-  trigger:
-    - platform: state 
-      entity_id: sun.sun
-      from: above_horizon
-      to: below_horizon
-  action:
-    service: frontend.set_theme
-    data:
-      name: night
-
-- id: day_theme_during_day
-  alias: 'Day Theme During Day'
-  initial_state: True
-  trigger:
+    - platform: homeassistant
+      event: start
     - platform: state
       entity_id: sun.sun
-      from: below_horizon
       to: above_horizon
-  action: 
-    service: frontend.set_theme
-    data:
-      name: default
-
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
+  action:
+    - service_template: frontend.set_theme
+      data_template:
+        name: >
+          {% if states.sun.sun.state == "above_horizon" %}
+            default
+          {% else %}
+            darkred # <-- change to your dark theme name.
+          {% endif %}
