@@ -29,7 +29,7 @@
   action:
   - data:
       message: 'Garage door opened/closed'
-    service: notify.internal_notification
+    service: script.internal_notification
   initial_state: 'on'
 ################################################################################
 - action:
