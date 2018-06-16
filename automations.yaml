@@ -172,7 +172,7 @@
 ################################################################################
 
 - id: automatic_theme_change
-  initia_state: True
+  initial_state: True
   alias: Automatic Theme Change
   trigger:
     - platform: homeassistant
