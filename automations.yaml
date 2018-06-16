@@ -189,7 +189,7 @@
           {% if states.sun.sun.state == "above_horizon" %}
             default
           {% else %}
-            darkred # <-- change to your dark theme name.
+            night # <-- change to your dark theme name.
           {% endif %}
 ################################################################################
 - id: turn_on_night_light
