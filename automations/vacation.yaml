@@ -1,0 +1,41 @@
+################################################################################
+# Turn on window AC based on outdoor temperature
+################################################################################
+ 
+- id: '1520379769803'
+  alias: Turn On Window AC
+#  hide_entity: true
+  trigger:
+  - above: '85'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+  condition: 
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: on
+  action:
+  - data:
+      entity_id: switch.upstairs_ac
+    service: switch.turn_on
+
+################################################################################
+# Turn off window AC at 11:45 PM or when temp is below 81F
+################################################################################
+
+- id: '1520379886802'
+  alias: Turn Off Window AC
+  trigger:
+  - below: '84'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+  - at: '23:45:00'
+    platform: time
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: on 
+  action:
+  - data:
+      entity_id: switch.upstairs_ac
+    service: switch.turn_off
+
