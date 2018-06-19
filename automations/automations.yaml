@@ -1,0 +1,232 @@
+################################################################################
+# Close garage door when alarm set to home
+################################################################################
+
+- id: '1519348624408'
+  alias: Secure Home, Stay
+  trigger:
+  - entity_id: alarm_control_panel.simplisafe
+    from: disarmed
+    platform: state
+    to: armed_home
+  - entity_id: alarm_control_panel.simplisafe
+    from: armed_away
+    platform: state
+    to: armed_home
+  condition: []
+  action:
+  - alias: ''
+    data: {}
+    service: cover.close_cover
+
+################################################################################
+# Send notification when garage door is open or closed
+################################################################################
+
+- id: garage_state_change
+  alias: Garage State Change
+  initial_state: 'on'
+  trigger:
+  - entity_id: cover.garage_door
+    from: open
+    to: closed
+    platform: state
+  - entity_id: cover.garage_door
+    from: closed
+    to: open
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: 'Garage door opened/closed'
+    service: script.internal_notification
+
+################################################################################
+# Close garage door when alarm is set to away
+################################################################################
+ 
+- id: '1519775124178'
+  alias: Secure Home, Away
+  trigger:
+  - entity_id: alarm_control_panel.home_security
+    from: disarmed
+    platform: state
+    to: armed_away
+  - entity_id: alarm_control_panel.home_security
+    from: armed_home
+    platform: state
+    to: armed_away
+  condition: []
+  action:
+  - data:
+      entity_id: cover.garage_door_opener
+    service: cover.close_cover
+
+################################################################################
+# Turn on window AC based on outdoor temperature
+################################################################################
+ 
+- id: '1520379769803'
+  alias: Turn On Window AC
+#  hide_entity: true
+  trigger:
+  - above: '82'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.upstairs_ac
+    service: switch.turn_on
+
+################################################################################
+# Turn off window AC at 11:45 PM or when temp is below 81F
+################################################################################
+
+- id: '1520379886802'
+  alias: Turn Off Window AC
+  trigger:
+  - below: '81'
+    entity_id: sensor.pws_temp_f
+    platform: numeric_state
+  - at: '23:45:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.upstairs_ac
+    service: switch.turn_off
+
+################################################################################
+# Turn light on at sunset when alarm set to away
+################################################################################
+
+- id: '1520389956382'
+  alias: Night Light On
+  hide_entity: true
+  trigger:
+  - entity_id: sun.sun
+    from: above_horizon
+    platform: state
+    to: below_horizon
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_away
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_on
+
+################################################################################
+# Night Light Off
+################################################################################
+
+- id: '1520390163853'
+  alias: Night Light Off
+  trigger:
+  - at: '22:35:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_off
+
+################################################################################
+# Garage Home while Secure Home
+################################################################################
+
+- id: '1521315030622'
+  alias: Garage Home while Secure Home
+  trigger:
+  - entity_id: cover.garage_door
+    from: closed
+    platform: state
+    to: open
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_home
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_on
+  - service: script.global_notification
+    data:
+      message: 'Garage door has opened while secured!'
+
+################################################################################
+# Notification - Home Assistant Restart
+################################################################################
+
+- id: notification_restart
+  alias: Notification - Home Assistant Restart
+#  initial: 'on'
+  trigger:
+  - event: start
+    platform: homeassistant
+  action:
+  - data:
+      message: 'Home Assistant has restarted.'
+    service: script.internal_notification
+
+################################################################################
+# Power Down When Away
+################################################################################
+
+- id: power_down_when_away
+  alias: Power Down When Away
+  initial_state: True
+  trigger:
+  - entity_id: alarm_control_panel.simplisafe
+    from: disarmed
+    platform: state
+    to: armed_away
+  - entity_id: alarm_control_panel.simplisafe
+    from: armed_home
+    platform: state
+    to: armed_away
+  action:
+  - data:
+      entity_id: switch.master_tv
+    service: switch.turn_off
+  - data:
+      entity_id: switch.living_tv_
+    service: switch.turn_off
+  - data:
+      message: 'Power down has completed'
+    service: script.global_notification
+
+################################################################################
+# Update notifications
+################################################################################
+
+- id: update_notifications
+  alias: Update notifications
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.global_notification
+    data_template: 
+      title: 'New Home Assistant Release'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+
+################################################################################
+# Turn on Night Light when sun sets
+################################################################################
+
+- id: turn_on_night_light
+  initial_state: True
+  alias: Turn on Night Light
+  trigger:
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
+  condition: []
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.fireplace
+
