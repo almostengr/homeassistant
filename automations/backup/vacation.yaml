@@ -9,7 +9,7 @@
   - above: '85'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
-  condition: 
+  condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'on'
@@ -33,7 +33,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
-      state: 'on' 
+      state: 'on'
   action:
   - data:
       entity_id: switch.upstairs_ac
