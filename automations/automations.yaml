@@ -157,21 +157,6 @@
       message: 'Garage door has opened while secured!'
 
 ################################################################################
-# Notification - Home Assistant Restart
-################################################################################
-
-- id: notification_restart
-  alias: Notification - Home Assistant Restart
-#  initial: 'on'
-  trigger:
-  - event: start
-    platform: homeassistant
-  action:
-  - data:
-      message: 'Home Assistant has restarted.'
-    service: script.internal_notification
-
-################################################################################
 # Power Down When Away
 ################################################################################
 
@@ -197,21 +182,6 @@
   - data:
       message: 'Power down has completed'
     service: script.global_notification
-
-################################################################################
-# Update notifications
-################################################################################
-
-- id: update_notifications
-  alias: Update notifications
-  trigger:
-    - platform: state
-      entity_id: updater.updater
-  action:
-    service: notify.global_notification
-    data_template: 
-      title: 'New Home Assistant Release'
-      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 
 ################################################################################
 # Turn on Night Light when sun sets
