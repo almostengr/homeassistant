@@ -1,7 +1,15 @@
-*
+# do not exclude the below files
+
 !*.yaml
 !.gitignore
+
+# exclude the below files
+
 entity_registry.yaml
 known_devices.yaml
 secrets.yaml
+*log
+*db
+.uuid
+.HA_VERSION
 
