@@ -76,7 +76,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
-      state: off
+      state: 'off'
   action:
   - data:
       entity_id: switch.upstairs_ac
@@ -97,7 +97,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
-      state: off
+      state: 'off'
   action:
   - data:
       entity_id: switch.upstairs_ac
@@ -117,7 +117,7 @@
   condition:
   - condition: state
     entity_id: alarm_control_panel.home_security
-    state: armed_home
+    state: 'armed_home'
   action:
   - data:
       entity_id: switch.fireplace
