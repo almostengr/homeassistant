@@ -98,42 +98,6 @@
     service: switch.turn_off
 
 ################################################################################
-# Turn light on at sunset when alarm set to away
-################################################################################
-
-- id: '1520389956382'
-  alias: Night Light On
-  hide_entity: true
-  trigger:
-  - entity_id: sun.sun
-    from: above_horizon
-    platform: state
-    to: below_horizon
-  condition:
-  - condition: state
-    entity_id: alarm_control_panel.home_security
-    state: armed_away
-  action:
-  - data:
-      entity_id: switch.fireplace
-    service: switch.turn_on
-
-################################################################################
-# Night Light Off
-################################################################################
-
-- id: '1520390163853'
-  alias: Night Light Off
-  trigger:
-  - at: '22:35:00'
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id: switch.fireplace
-    service: switch.turn_off
-
-################################################################################
 # Garage Home while Secure Home
 ################################################################################
 
@@ -182,21 +146,4 @@
   - data:
       message: 'Power down has completed'
     service: script.global_notification
-
-################################################################################
-# Turn on Night Light when sun sets
-################################################################################
-
-- id: turn_on_night_light
-  initial_state: True
-  alias: Turn on Night Light
-  trigger:
-    - platform: state
-      entity_id: sun.sun
-      to: below_horizon
-  condition: []
-  action:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.fireplace
 

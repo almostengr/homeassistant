@@ -1,0 +1,35 @@
+################################################################################
+# Night light on 
+################################################################################
+- id: '1520389956382'
+  alias: Night Light On
+  hide_entity: true
+  trigger:
+  - entity_id: sun.sun
+    from: above_horizon
+    platform: state
+    to: below_horizon
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_security
+    state: armed_away
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_on
+
+################################################################################
+# Night Light Off
+################################################################################
+
+- id: '1520390163853'
+  alias: Night Light Off
+  trigger:
+  - at: '22:35:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fireplace
+    service: switch.turn_off
+
