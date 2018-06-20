@@ -164,10 +164,6 @@
     from: above_horizon
     platform: state
     to: below_horizon
-  condition:
-  - condition: state
-    entity_id: alarm_control_panel.home_security
-    state: armed_away
   action:
   - data:
       entity_id: switch.fireplace
