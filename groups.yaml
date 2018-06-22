@@ -34,6 +34,7 @@ office_view:
   entities:
     - media_player.kodi_office
     - media_player.roku_office
+    - switch.cable
 
 bedroom1_view:
   name: Bedroom 1
