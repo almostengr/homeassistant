@@ -284,3 +284,18 @@
       entity_id: switch.upstairs_ac
     service: switch.turn_off
 
+################################################################################
+# Switch on Modem
+################################################################################
+
+- id: switch_on_modem
+  alias: Switch On Modem
+  trigger:
+  - event: start
+    platform: homeassistant
+  action: 
+  - delay: '00:05:00'
+  - data:
+      entity_id: switch.cable
+    service: switch.turn_on
+
