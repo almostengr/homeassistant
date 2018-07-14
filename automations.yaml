@@ -207,35 +207,6 @@
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 
 ################################################################################
-# Automatic Theme Change based on time of day
-################################################################################
-
-- id: automatic_theme_change
-  initial_state: True
-  alias: Automatic Theme Change
-  trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: sun.sun
-      from: below_horizon
-      to: above_horizon
-    - platform: state
-      entity_id: sun.sun
-      from: above_horizon
-      to: below_horizon
-  condition: []
-  action:
-    - service_template: frontend.set_theme
-      data_template:
-        name: >
-          {% if states.sun.sun.state == "above_horizon" %}
-            default
-          {% else %}
-            night_theme # <-- change to your dark theme name.
-          {% endif %}
-
-################################################################################
 # Turn on window AC based on outdoor temperature
 ################################################################################
  
