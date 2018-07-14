@@ -94,6 +94,6 @@ modes:
   name: Modes
   entities:
     - input_boolean.vacation_mode
-#    - input_boolean.night_mode
+    - input_boolean.night_mode
 
 
