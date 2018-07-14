@@ -194,8 +194,15 @@
   trigger:
   - event: start
     platform: homeassistant
+  - platform: time
+    minutes: 05
+    seconds: 00
+  - platform: time
+    minutes: 35
+    seconds: 00
   action:
   - delay: 00:05:00
   - data:
       entity_id: switch.cable
     service: switch.turn_on
+
