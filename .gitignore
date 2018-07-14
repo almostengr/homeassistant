@@ -12,4 +12,5 @@ secrets.yaml
 *db
 .uuid
 .HA_VERSION
+*swp
 
