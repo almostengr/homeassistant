@@ -205,4 +205,19 @@
   - data:
       entity_id: switch.cable
     service: switch.turn_on
-
+- id: trash_day_notification
+  alias: Trash Day
+  trigger:
+    platform: time
+    after: '17:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - thu
+  action:
+    service: persistent_notification.create
+    data:
+      message: "Today is trash day"
+      title: "Trash Day Reminder"
+  
