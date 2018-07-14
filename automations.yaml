@@ -125,6 +125,7 @@
     from: above_horizon
     platform: state
     to: below_horizon
+    offset: '-00:30:00'
   action:
   - data:
       entity_id: switch.fireplace
