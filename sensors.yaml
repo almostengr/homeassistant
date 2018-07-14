@@ -60,38 +60,8 @@
   name: BHM to MGM
 
 - platform: waze_travel_time
-  origin: Atlanta, GA
-  destination: Montgomery, AL
-  region: 'US'
-  name: ATL to MGM
-
-- platform: waze_travel_time
-  origin: Atlanta, GA
-  destination: Birmingham, AL
-  region: 'US'
-  name: ATL to BHM
-
-- platform: waze_travel_time
-  origin: Montgomery, AL
-  destination: Gulf Shores, AL
-  region: 'US'
-  name: MGM to Gulf Shores
-
-- platform: waze_travel_time
   origin: Troy, AL
   destination: Panama City Beach, FL
   region: 'US'
   name: Troy to PCB
-
-- platform: waze_travel_time
-  origin: Troy, AL
-  destination: Dothan, AL
-  region: 'US'
-  name: Troy to Dothan
-
-- platform: waze_travel_time
-  origin: Birmingham, AL
-  destination: Nashville, TN
-  region: 'US'
-  name: BHM to BNA (Nashville)
 
