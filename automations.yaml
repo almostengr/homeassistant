@@ -1,7 +1,3 @@
-################################################################################
-# Close garage door when alarm set to home
-################################################################################
-
 - id: '1519348624408'
   alias: Secure Home, Stay
   trigger:
@@ -18,11 +14,6 @@
   - alias: ''
     data: {}
     service: cover.close_cover
-
-################################################################################
-# Send notification when garage door is open or closed
-################################################################################
-
 - id: garage_state_change
   alias: Garage State Change
   initial_state: 'on'
@@ -38,13 +29,8 @@
   condition: []
   action:
   - data:
-      message: 'Garage door opened/closed'
+      message: Garage door opened/closed
     service: script.internal_notification
-
-################################################################################
-# Close garage door when alarm is set to away
-################################################################################
- 
 - id: '1519775124178'
   alias: Secure Home, Away
   trigger:
@@ -61,27 +47,20 @@
   - data:
       entity_id: cover.garage_door_opener
     service: cover.close_cover
-
-################################################################################
-# Turn on window AC based on outdoor temperature
-################################################################################
- 
 - id: '1520379769803'
   alias: Turn On Window AC
-#  hide_entity: true
   trigger:
   - above: '82'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_on
-
-################################################################################
-# Turn off window AC at 11:45 PM or when temp is below 81F
-################################################################################
-
 - id: '1520379886802'
   alias: Turn Off Window AC
   trigger:
@@ -94,11 +73,6 @@
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_off
-
-################################################################################
-# Garage Home while Secure Home
-################################################################################
-
 - id: '1521315030622'
   alias: Garage Home while Secure Home
   trigger:
@@ -109,22 +83,17 @@
   condition:
   - condition: state
     entity_id: alarm_control_panel.home_security
-    state: 'armed_home'
+    state: armed_home
   action:
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
   - service: script.global_notification
     data:
-      message: 'Garage door has opened while secured!'
-
-################################################################################
-# Power Down When Away
-################################################################################
-
+      message: Garage door has opened while secured!
 - id: power_down_when_away
   alias: Power Down When Away
-  initial_state: True
+  initial_state: true
   trigger:
   - entity_id: alarm_control_panel.simplisafe
     from: disarmed
@@ -142,12 +111,8 @@
       entity_id: switch.living_tv_
     service: switch.turn_off
   - data:
-      message: 'Power down has completed'
+      message: Power down has completed
     service: script.global_notification
-
-################################################################################
-# Night light on 
-################################################################################
 - id: '1520389956382'
   alias: Night Light On
   hide_entity: true
@@ -160,11 +125,6 @@
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
-
-################################################################################
-# Night Light Off
-################################################################################
-
 - id: '1520390163853'
   alias: Night Light Off
   trigger:
@@ -175,61 +135,39 @@
   - data:
       entity_id: switch.fireplace
     service: switch.turn_off
-
-################################################################################
-# Notification - Home Assistant Restart
-################################################################################
-
 - id: notification_restart
   alias: Notification - Home Assistant Restart
-#  initial: 'on'
   trigger:
   - event: start
     platform: homeassistant
   action:
   - data:
-      message: 'Home Assistant has restarted.'
+      message: Home Assistant has restarted.
     service: script.internal_notification
-
-################################################################################
-# Update notifications
-################################################################################
-
 - id: update_notifications
   alias: Update notifications
   trigger:
-    - platform: state
-      entity_id: updater.updater
+  - platform: state
+    entity_id: updater.updater
   action:
     service: notify.global_notification
     data_template:
-      title: 'New Home Assistant Release'
-      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
-
-################################################################################
-# Turn on window AC based on outdoor temperature
-################################################################################
- 
+      title: New Home Assistant Release
+      message: Home Assistant  {{ states.updater.updater.state }}  is now available.
 - id: '1520379769803'
   alias: Turn On Window AC
-#  hide_entity: true
   trigger:
   - above: '85'
     entity_id: sensor.pws_temp_f
     platform: numeric_state
   condition:
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
   action:
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_on
-
-################################################################################
-# Turn off window AC at 11:45 PM or when temp is below 81F
-################################################################################
-
 - id: '1520379886802'
   alias: Turn Off Window AC
   trigger:
@@ -239,38 +177,30 @@
   - at: '23:45:00'
     platform: time
   condition:
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
   action:
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_off
-
-################################################################################
-# Switch on Modem
-################################################################################
-
 - id: switch_on_modem
   alias: Switch On Modem
   trigger:
   - event: start
     platform: homeassistant
-  action: 
-  - delay: '00:05:00'
+  action:
+  - delay: 00:05:00
   - data:
       entity_id: switch.cable
     service: switch.turn_on
-
 - id: hass_theme
   alias: hass_theme
   initial_state: 'on'
   trigger:
-    - platform: state
-      entity_id: input_boolean.night_mode
+  - platform: state
+    entity_id: input_boolean.night_mode
   action:
   - service: frontend.set_theme
     data_template:
-      name: "{{ states.input_select.hass_theme.state }}"
-
-
+      name: '{{ states.input_select.hass_theme.state }}'
