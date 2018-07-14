@@ -198,13 +198,3 @@
   - data:
       entity_id: switch.cable
     service: switch.turn_on
-- id: hass_theme
-  alias: hass_theme
-  initial_state: 'on'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.night_mode
-  action:
-  - service: frontend.set_theme
-    data_template:
-      name: '{{ states.input_select.hass_theme.state }}'
