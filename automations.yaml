@@ -125,7 +125,6 @@
     from: above_horizon
     platform: state
     to: below_horizon
-    offset: '-00:30:00'
   action:
   - data:
       entity_id: switch.fireplace
@@ -209,7 +208,7 @@
   alias: Trash Day
   trigger:
     platform: time
-    after: '17:30:00'
+    at: '17:30:00'
   condition:
   - condition: time
     weekday:
