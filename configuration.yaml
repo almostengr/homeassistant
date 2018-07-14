@@ -43,7 +43,7 @@ frontend:
   themes: !include theme.yaml
 
 # Enables configuration UI
-# config:
+config:
 
 http:
   # Secrets are defined in the file secrets.yaml
