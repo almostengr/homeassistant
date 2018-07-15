@@ -159,7 +159,7 @@
       title: New Home Assistant Release
       message: Home Assistant  {{ states.updater.updater.state }}  is now available.
 - id: '1520379769803'
-  alias: Turn On Window AC Vacation
+  alias: Vacation-Turn On Window AC
   trigger:
   - above: '85'
     entity_id: sensor.pws_temp_f
@@ -173,7 +173,7 @@
       entity_id: switch.upstairs_ac
     service: switch.turn_on
 - id: '1520379886802'
-  alias: Turn Off Window AC Vacation
+  alias: Vacation-Turn Off Window AC
   trigger:
   - below: '84'
     entity_id: sensor.pws_temp_f
