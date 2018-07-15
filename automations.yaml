@@ -56,7 +56,7 @@
   condition:
   - condition: state
     entity_id: input_boolean.vacation_mode
-    state: 'on'
+    state: 'off'
   action:
   - data:
       entity_id: switch.upstairs_ac
@@ -194,11 +194,11 @@
   - event: start
     platform: homeassistant
   - platform: time
-    minutes: 05
-    seconds: 00
+    minutes: 5
+    seconds: 0
   - platform: time
     minutes: 35
-    seconds: 00
+    seconds: 0
   action:
   - delay: 00:05:00
   - data:
@@ -212,11 +212,10 @@
   condition:
   - condition: time
     weekday:
-      - mon
-      - thu
+    - mon
+    - thu
   action:
     service: persistent_notification.create
     data:
-      message: "Today is trash day"
-      title: "Trash Day Reminder"
-  
+      message: Today is trash day
+      title: Trash Day Reminder
