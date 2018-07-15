@@ -32,7 +32,7 @@
       message: Garage door opened/closed
     service: script.internal_notification
 - id: '1519775124178'
-  alias: Secure Home, Away
+  alias: Switch to Away Mode
   trigger:
   - entity_id: alarm_control_panel.home_security
     from: disarmed
@@ -47,6 +47,16 @@
   - data:
       entity_id: cover.garage_door_opener
     service: cover.close_cover
+  - data:
+      entity_id: switch.master_tv
+    service: switch.turn_off
+  - data:
+      entity_id: switch.living_tv_
+    service: switch.turn_off
+  - data:
+      message: Away Mode activated
+    service: script.global_notification
+
 - id: '1520379769803'
   alias: Turn On Window AC
   trigger:
@@ -95,28 +105,6 @@
   - service: script.global_notification
     data:
       message: Garage door has opened while secured!
-- id: power_down_when_away
-  alias: Power Down When Away
-  initial_state: true
-  trigger:
-  - entity_id: alarm_control_panel.simplisafe
-    from: disarmed
-    platform: state
-    to: armed_away
-  - entity_id: alarm_control_panel.simplisafe
-    from: armed_home
-    platform: state
-    to: armed_away
-  action:
-  - data:
-      entity_id: switch.master_tv
-    service: switch.turn_off
-  - data:
-      entity_id: switch.living_tv_
-    service: switch.turn_off
-  - data:
-      message: Power down has completed
-    service: script.global_notification
 - id: '1520389956382'
   alias: Night Light On
   hide_entity: true
