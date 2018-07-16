@@ -79,10 +79,6 @@
     platform: numeric_state
   - at: '23:45:00'
     platform: time
-  condition:
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'on'
   action:
   - data:
       entity_id: switch.upstairs_ac
