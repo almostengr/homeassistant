@@ -71,7 +71,7 @@
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_on
-- id: '1520379886802'
+- id: '1520379886802a'
   alias: Turn Off Window AC
   trigger:
   - below: '81'
@@ -79,6 +79,10 @@
     platform: numeric_state
   - at: '23:45:00'
     platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
   - data:
       entity_id: switch.upstairs_ac
