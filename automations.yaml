@@ -121,6 +121,23 @@
   - data:
       entity_id: switch.fireplace
     service: switch.turn_on
+- id: 'morning_news'
+  alias: Morning News
+  trigger:
+  - platform: time
+    at: '06:25:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      entity_id: switch.master_tv
+    service: switch.turn_on
 - id: '1520390163853'
   alias: Night Light Off
   trigger:
