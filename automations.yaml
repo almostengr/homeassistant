@@ -192,6 +192,21 @@
   - data:
       entity_id: switch.cable
     service: switch.turn_on
+- id: disable_vacation_mode_on_return
+  alias: Disable Vacation Mode on Return
+  trigger:
+    - entity_id: alarm_control_panel.home_security
+      platform: state
+      from: away
+      to: disarmed
+    - entity_id: alarm_control_panel.home_security
+      platform: state
+      from: away
+      to: home
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacation_mode
 - id: trash_day_notification
   alias: Trash Day
   trigger:
