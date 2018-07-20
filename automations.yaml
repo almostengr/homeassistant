@@ -100,7 +100,7 @@
     state: armed_home
   action:
   - data:
-      entity_id: switch.fireplace
+      entity_id: switch.living_lamp
     service: switch.turn_on
   - service: script.global_notification
     data:
@@ -119,7 +119,7 @@
     state: 'Mostly Cloudy'
   action:
   - data:
-      entity_id: switch.fireplace
+      entity_id: switch.living_lamp
     service: switch.turn_on
 - id: 'morning_news'
   alias: Morning News
@@ -146,7 +146,7 @@
   condition: []
   action:
   - data:
-      entity_id: switch.fireplace
+      entity_id: switch.living_lamp
     service: switch.turn_off
 - id: notification_restart
   alias: Notification - Home Assistant Restart

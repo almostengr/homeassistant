@@ -4,7 +4,7 @@
 static: 
   - !secret wemo_ac_ip
   - !secret wemo_bedroom1_ip
-  - !secret wemo_fireplace_ip
+  - !secret wemo_living_lamp_ip
   - !secret wemo_living_ip
   - !secret wemo_cable_ip
 
