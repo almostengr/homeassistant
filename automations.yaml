@@ -243,3 +243,19 @@
     data:
       message: Today is trash day
       title: Trash Day Reminder
+      notification_id: "92349823748923749"
+- id: dismiss_trash_notification
+  alias: Trash Day-Dismiss Notification
+  trigger:
+    platform: time
+    at: '14:40:00'
+  condition:
+  - condition: time
+    weekday:
+    - tue
+    - fri
+  action:
+    service: persistent_notification.dismiss
+    data:
+      notification_id: "92349823748923749"
+
