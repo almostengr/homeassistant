@@ -138,6 +138,23 @@
   - data:
       entity_id: switch.master_tv
     service: switch.turn_on
+- id: 'morning_news_end'
+  alias: Morning News Signoff
+  trigger:
+  - platform: time
+    at: '07:55:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      entity_id: switch.master_tv
+    service: switch.turn_off
 - id: '1520390163853'
   alias: Night Light Off
   trigger:
