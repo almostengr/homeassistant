@@ -113,10 +113,6 @@
     from: above_horizon
     platform: state
     to: below_horizon
-  condition:
-  - condition: state
-    entity_id: sensor.pws_weather
-    state: 'Mostly Cloudy'
   action:
   - data:
       entity_id: switch.living_lamp
