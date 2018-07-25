@@ -44,6 +44,8 @@
     to: armed_away
   condition: []
   action:
+  - delay:
+    minutes: 4
   - data:
       entity_id: cover.garage_door_opener
     service: cover.close_cover
