@@ -45,7 +45,7 @@
   condition: []
   action:
   - delay:
-    minutes: 4
+      minutes: 4
   - data:
       entity_id: cover.garage_door_opener
     service: cover.close_cover
