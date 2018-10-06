@@ -60,3 +60,9 @@
   region: 'US'
   name: Troy to PCB
 
+- platform: waze_travel_time
+  origin: Montgomery, AL
+  destination: Atlanta, GA
+  region: 'US'
+  name: MGM to ATL
+
