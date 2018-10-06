@@ -18,11 +18,11 @@
   alias: Garage State Change
   initial_state: 'on'
   trigger:
-  - entity_id: cover.garage_door
+  - entity_id: cover.garage_door_opener
     from: open
     to: closed
     platform: state
-  - entity_id: cover.garage_door
+  - entity_id: cover.garage_door_opener
     from: closed
     to: open
     platform: state
@@ -47,7 +47,7 @@
   - delay:
       minutes: 4
   - data:
-      entity_id: cover.garage_door_opener
+      entity_id: cover.garage_door
     service: cover.close_cover
   - data:
       entity_id: switch.master_tv
