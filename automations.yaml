@@ -1,5 +1,5 @@
 - id: '1519348624408'
-  alias: Secure Home, Stay
+  alias: Security - Home Mode
   trigger:
   - entity_id: alarm_control_panel.simplisafe
     from: disarmed
@@ -15,24 +15,24 @@
     data: {}
     service: cover.close_cover
 - id: garage_state_change
-  alias: Garage State Change
-  initial_state: 'on'
+  alias: Notification - Garage State Change
   trigger:
   - entity_id: cover.garage_door_opener
     from: open
-    to: closed
     platform: state
+    to: closed
   - entity_id: cover.garage_door_opener
     from: closed
-    to: open
     platform: state
+    to: open
   condition: []
   action:
   - data:
       message: Garage door opened/closed
     service: script.internal_notification
+  initial_state: 'on'
 - id: '1519775124178'
-  alias: Switch to Away Mode
+  alias: Security - Away Mode
   trigger:
   - entity_id: alarm_control_panel.home_security
     from: disarmed
@@ -44,8 +44,7 @@
     to: armed_away
   condition: []
   action:
-  - delay:
-      minutes: 4
+  - delay: '[object Object]'
   - data:
       entity_id: cover.garage_door
     service: cover.close_cover
@@ -58,9 +57,8 @@
   - data:
       message: Away Mode activated
     service: script.global_notification
-
 - id: '1520379769803'
-  alias: Turn On Window AC
+  alias: Climate - Turn On Window AC
   trigger:
   - above: '82'
     entity_id: sensor.pws_temp_f
@@ -73,8 +71,8 @@
   - data:
       entity_id: switch.upstairs_ac
     service: switch.turn_on
-- id: '1520379886802a'
-  alias: Turn Off Window AC
+- id: 1520379886802a
+  alias: Climate - Turn Off Window AC
   trigger:
   - below: '81'
     entity_id: sensor.pws_temp_f
@@ -90,7 +88,7 @@
       entity_id: switch.upstairs_ac
     service: switch.turn_off
 - id: '1521315030622'
-  alias: Garage Home while Secure Home
+  alias: Security - Garage Home while Secure Home
   trigger:
   - entity_id: cover.garage_door
     from: closed
@@ -104,9 +102,9 @@
   - data:
       entity_id: switch.living_lamp
     service: switch.turn_on
-  - service: script.global_notification
-    data:
+  - data:
       message: Garage door has opened while secured!
+    service: script.global_notification
 - id: '1520389956382'
   alias: Night Light On
   hide_entity: true
@@ -119,11 +117,11 @@
   - data:
       entity_id: switch.living_lamp
     service: switch.turn_on
-- id: 'morning_news'
+- id: morning_news
   alias: Morning News
   trigger:
   - platform: time
-    at: '06:25:00'
+    at: 06:25:00
   condition:
   - condition: time
     weekday:
@@ -136,11 +134,11 @@
   - data:
       entity_id: switch.master_tv
     service: switch.turn_on
-- id: 'morning_news_end'
+- id: morning_news_end
   alias: Morning News Signoff
   trigger:
   - platform: time
-    at: '07:55:00'
+    at: 07:55:00
   condition:
   - condition: time
     weekday:
@@ -173,15 +171,15 @@
       message: Home Assistant has restarted.
     service: script.internal_notification
 - id: update_notifications
-  alias: Update notifications
+  alias: Notification - Update Home Assistant
   trigger:
-  - platform: state
-    entity_id: updater.updater
+  - entity_id: updater.updater
+    platform: state
   action:
-    service: notify.global_notification
-    data_template:
-      title: New Home Assistant Release
+  - data_template:
       message: Home Assistant  {{ states.updater.updater.state }}  is now available.
+      title: New Home Assistant Release
+    service: notify.global_notification
 - id: '1520379769803'
   alias: Vacation-Turn On Window AC
   trigger:
@@ -197,7 +195,7 @@
       entity_id: switch.upstairs_ac
     service: switch.turn_on
 - id: '1520379886802'
-  alias: Vacation-Turn Off Window AC
+  alias: Climate - Turn Off Window AC, Vacation
   trigger:
   - below: '84'
     entity_id: sensor.pws_temp_f
@@ -231,46 +229,45 @@
 - id: disable_vacation_mode_on_return
   alias: Disable Vacation Mode on Return
   trigger:
-    - entity_id: alarm_control_panel.home_security
-      platform: state
-      from: away
-      to: disarmed
-    - entity_id: alarm_control_panel.home_security
-      platform: state
-      from: away
-      to: home
+  - entity_id: alarm_control_panel.home_security
+    platform: state
+    from: away
+    to: disarmed
+  - entity_id: alarm_control_panel.home_security
+    platform: state
+    from: away
+    to: home
   action:
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.vacation_mode
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.vacation_mode
 - id: trash_day_notification
-  alias: Trash Day
+  alias: Notification - Trash Day
   trigger:
+  - at: '17:30:00'
     platform: time
-    at: '17:30:00'
   condition:
   - condition: time
     weekday:
     - mon
     - thu
   action:
-    service: persistent_notification.create
-    data:
+  - data:
       message: Today is trash day
+      notification_id: '92349823748923749'
       title: Trash Day Reminder
-      notification_id: "92349823748923749"
+    service: persistent_notification.create
 - id: dismiss_trash_notification
-  alias: Trash Day-Dismiss Notification
+  alias: Notification - Trash Day Dismiss
   trigger:
+  - at: '14:40:00'
     platform: time
-    at: '14:40:00'
   condition:
   - condition: time
     weekday:
     - tue
     - fri
   action:
+  - data:
+      notification_id: '92349823748923749'
     service: persistent_notification.dismiss
-    data:
-      notification_id: "92349823748923749"
-
