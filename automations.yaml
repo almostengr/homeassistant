@@ -180,7 +180,8 @@
       message: Home Assistant  {{ states.updater.updater.state }}  is now available.
       title: New Home Assistant Release
     service: notify.global_notification
-- alias: Climate - Turn On Window AC, Vacation
+- id: climate_turn_on_window_ac_vacation
+  alias: Climate - Turn On Window AC, Vacation
   trigger:
   - above: '85'
     entity_id: sensor.pws_temp_f
