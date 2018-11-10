@@ -91,9 +91,6 @@ sun:
 tts:
   - platform: google
 
-# Cloud
-# cloud:
-
 # source external files
 group: !include groups.yaml
 automation: !include automations.yaml
