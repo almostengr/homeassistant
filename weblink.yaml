@@ -8,4 +8,8 @@ entities:
     url: http://thepost/farmosweb
   - name: Intranet
     url: http://thepost/intranet
+  - name: Webmin thepost
+    url: https://thepost:10000
+  - name: Router
+    url: https://router/
 

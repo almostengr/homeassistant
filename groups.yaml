@@ -14,6 +14,11 @@ weblinks:
     - weblink.farmos
     - weblink.intranet
 
+weblinks2:
+  name: Server Admin
+  entities:
+    - weblink.router
+
 security:
   name: Security
   entities:
