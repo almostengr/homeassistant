@@ -6,7 +6,9 @@ configuration, hopefully it will assist you and others with their configuraiton 
 ## Tutorials
 I've created tutorials for setting up various items and automations in Home Assistant. 
 Those tutorials are available to watch on my 
-[YouTube channel](https://www.youtube.com/channel/UC4HCouBLtXD1j1U_17aBqig). There are also
+[YouTube channel](https://www.youtube.com/channel/UC4HCouBLtXD1j1U_17aBqig) in the 
+[Home Assistant Playlist](https://www.youtube.com/playlist?list=PLaAJ0fv0d9WMOGZmLnghrG321kVueGfuL). 
+There are also
 tutorials available on the [Home Assistant](https://home-assistant.io) website.
 
 ## Components
