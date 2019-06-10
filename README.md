@@ -21,9 +21,9 @@ tutorials available on the [Home Assistant](https://home-assistant.io) website.
 
 ### Software
 * [Home Assistant 0.71](https://www.home-assistant.io)
-* Kodi
+* [Kodi](https://kodi.tv/)
 * [Plex](https://www.plex.tv)
-* DD-WRT
+* [DD-WRT](https://www.dd-wrt.com/)
 
 ## Inferface Screenshots
 ![UI](screenshots/living_room.png)
