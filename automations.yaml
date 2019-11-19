@@ -121,7 +121,7 @@
   alias: Morning News
   trigger:
   - platform: time
-    at: 06:25:00
+    at: 05:55:00
   condition:
   - condition: time
     weekday:
