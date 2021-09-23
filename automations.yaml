@@ -1,0 +1,210 @@
+- id: '1632356090101'
+  alias: lights on at sunset
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.living_lamp
+  mode: single
+- id: '1632356374262'
+  alias: light off at bedtime
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: armed_home
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - service: switch.turn_off
+    target:
+      entity_id: switch.living_lamp
+  mode: single
+- id: '1632357140097'
+  alias: upstairs climate off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: weather.thermostat
+  condition:
+  - condition: numeric_state
+    entity_id: weather.thermostat
+    below: '55'
+    attribute: temperature
+  action: []
+  mode: single
+- id: '1632359329385'
+  alias: turn on bedroom ac after office ac
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.upstairs_fan
+    to: 'on'
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: switch.turn_on
+    target:
+      entity_id: switch.upstairs_ac
+  mode: single
+- id: '1632359424581'
+  alias: turn off bedroom ac after office ac
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.upstairs_fan
+    to: 'off'
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: switch.turn_off
+    target:
+      entity_id: switch.upstairs_ac
+  mode: single
+- id: '1632359537685'
+  alias: leaving home
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: armed_away
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.master_tv
+      - switch.living_tv
+  mode: single
+- id: '1632359938760'
+  alias: welcome home
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: armed_home
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: disarmed
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id:
+      - switch.master_tv
+      - switch.living_tv
+  - service: script.set_climate_to_home_mode
+  - service: script.1632360036999
+  mode: single
+- id: '1632364087606'
+  alias: sync upstairs climate control, cool
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.thermostat
+    to: cool
+  condition: []
+  action:
+  - service: climate.set_hvac_mode
+    target:
+      entity_id:
+      - climate.office
+      - climate.bedroom
+    data:
+      hvac_mode: cool
+  mode: single
+- id: '1632364179933'
+  alias: sync upstairs climate control, off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.thermostat
+    to: 'off'
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.thermostat
+        state: 'off'
+      sequence:
+      - service: climate.turn_off
+        target:
+          entity_id:
+          - climate.bedroom
+          - climate.office
+    - conditions:
+      - condition: state
+        entity_id: climate.thermostat
+        state: heat
+      sequence:
+      - service: climate.turn_off
+        target:
+          entity_id:
+          - climate.office
+          - climate.bedroom
+    default: []
+  mode: single
+- id: '1632364275153'
+  alias: Home Assistant Startup
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: script.sync_upstairs_climate_control
+  mode: single
+- id: '1632438500182'
+  alias: lights off at sunrise
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sun.sun
+    to: above horizon
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.living_lamp
+  mode: single
+- id: '1632438807061'
+  alias: turn on light when alarm disabled after sunset and before sunrise
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: disarmed
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.living_lamp
+  mode: single
