@@ -1,0 +1,5 @@
+*db*
+secrets.yaml
+secrets.yml
+*.log*
+.storage*
