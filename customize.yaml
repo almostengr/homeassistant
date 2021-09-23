@@ -1,5 +1,0 @@
-sensor.yr_symbol:
-  friendly_name: Weather
-cover.garage_door_opener:
-  device_class: garage
-  friendly_name: Garage Door
