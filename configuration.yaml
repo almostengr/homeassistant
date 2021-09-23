@@ -23,6 +23,11 @@ scene: !include scenes.yaml
 climate: !include climate.yaml
 input_boolean: !include input_boolean.yaml
 
+# logging information to the database 
+recorder:
+  purge_keep_days: 90
+  purge_interval: 7
+
 http:
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password
