@@ -30,7 +30,7 @@ http:
   # base_url: example.duckdns.org:8123
   # trusted_networks: !secret trusted_networks
   ip_ban_enabled: True
-  login_attempts_threshold: 3
+  login_attempts_threshold: 5
   server_port: 80
 
 recorder:
