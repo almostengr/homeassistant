@@ -185,7 +185,7 @@
   trigger:
   - platform: state
     entity_id: sun.sun
-    to: above horizon
+    to: above_horizon
   condition: []
   action:
   - service: switch.turn_off
