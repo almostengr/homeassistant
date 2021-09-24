@@ -208,3 +208,13 @@
     target:
       entity_id: switch.living_lamp
   mode: single
+- id: '1632522981063'
+  alias: Shutdown HA remotely
+  description: ''
+  trigger:
+  - platform: webhook
+    webhook_id: shutdown-per-host-update
+  condition: []
+  action:
+  - service: hassio.host_shutdown
+  mode: single
