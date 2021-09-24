@@ -3,8 +3,8 @@
 default_config:
 
 homeassistant:
-  longitude: !secret longitude
-  latitude: !secret latitude
+#  longitude: !secret longitude
+#  latitude: !secret latitude
   unit_system: imperial
   time_zone: America/Chicago
 
