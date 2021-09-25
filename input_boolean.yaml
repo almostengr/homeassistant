@@ -1,7 +1,9 @@
-recording_video: 
+recording_video:
   name: Recording Video
   icon: mdi:video-vintage
 guest_mode:
   name: Guest Mode
   icon: mdi:account-multiple-check
-
+vacation_mode:
+  name: Vacation Mode
+  icon: mdi:airplane

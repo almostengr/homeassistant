@@ -200,9 +200,8 @@
     entity_id: alarm_control_panel.home_alarm_control_panel
     to: disarmed
   condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
+  - condition: time
+    before: 05:30:00
   action:
   - service: switch.turn_on
     target:
@@ -217,4 +216,115 @@
   condition: []
   action:
   - service: hassio.host_shutdown
+  mode: single
+- id: '1632573392835'
+  alias: tune to morning news
+  description: ''
+  trigger:
+  - platform: time
+    at: 05:50:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    before: 06:00:00
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.master_tv
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.roku_2_xs
+    data:
+      source: hdhomerun
+  mode: single
+- id: '1632573687962'
+  alias: house below min temp
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: climate.thermostat
+    below: '55'
+  condition: []
+  action:
+  - service: climate.set_hvac_mode
+    target:
+      entity_id: climate.thermostat
+    data:
+      hvac_mode: heat
+  - service: climate.set_temperature
+    target:
+      entity_id: climate.thermostat
+    data:
+      temperature: 55
+  mode: single
+- id: '1632574016263'
+  alias: vacation mode enabled
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.vacation_mode
+    to: 'true'
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: automation.turn_off
+    target:
+      entity_id: automation.tune_to_morning_news
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.upstairs_ac
+      - switch.upstairs_fan
+      - switch.master_tv
+      - switch.living_tv
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+      - input_boolean.guest_mode
+      - input_boolean.recording_video
+  mode: single
+- id: '1632574172187'
+  alias: vacation mode disabled
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    to: disarmed
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.vacation_mode
+  mode: single
+- id: '1632574228600'
+  alias: turn on vacation mode
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm_control_panel
+    for:
+      hours: 24
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+    to: armed_away
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.vacation_mode
   mode: single
