@@ -22,6 +22,7 @@ scene: !include scenes.yaml
 climate: !include climate.yaml
 input_boolean: !include input_boolean.yaml
 # notify: !include notification.yaml
+sensor: !include sensors.yaml
 
 http:
   # Secrets are defined in the file secrets.yaml

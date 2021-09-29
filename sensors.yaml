@@ -1,0 +1,6 @@
+- platform: rest
+  resource: http://192.168.57.126:8005/api/v1/thermometer
+  name: "Office Temperature"
+  scan_interval: 300
+  method: GET
+  value_template: "{{ (value_json.fahrenheit | int) }}"

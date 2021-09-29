@@ -53,8 +53,8 @@
   action:
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 30
+      minutes: 1
+      seconds: 0
       milliseconds: 0
   - service: switch.turn_on
     target:
@@ -71,8 +71,8 @@
   action:
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 30
+      minutes: 1
+      seconds: 0
       milliseconds: 0
   - service: switch.turn_off
     target:
@@ -131,7 +131,6 @@
     target:
       entity_id:
       - climate.office
-      - climate.bedroom
     data:
       hvac_mode: cool
   mode: single
@@ -155,7 +154,6 @@
       - service: climate.turn_off
         target:
           entity_id:
-          - climate.bedroom
           - climate.office
     - conditions:
       - condition: state
@@ -166,7 +164,6 @@
         target:
           entity_id:
           - climate.office
-          - climate.bedroom
     default: []
   mode: single
 - id: '1632364275153'
