@@ -23,6 +23,7 @@ climate: !include climate.yaml
 input_boolean: !include input_boolean.yaml
 # notify: !include notification.yaml
 sensor: !include sensors.yaml
+rest_command: !include rest_command.yaml
 
 http:
   # Secrets are defined in the file secrets.yaml

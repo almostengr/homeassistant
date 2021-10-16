@@ -174,7 +174,7 @@
     event: start
   condition: []
   action:
-  - service: script.sync_upstairs_climate_control
+  - service: script.home_assistant_startup
   mode: single
 - id: '1632438500182'
   alias: lights off at sunrise
@@ -250,7 +250,7 @@
   trigger:
   - platform: numeric_state
     entity_id: climate.thermostat
-    below: '55'
+    below: '60'
   condition: []
   action:
   - service: climate.set_hvac_mode
@@ -294,19 +294,6 @@
       - input_boolean.guest_mode
       - input_boolean.recording_video
   mode: single
-- id: '1632574172187'
-  alias: vacation mode disabled
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.home_alarm_control_panel
-    to: disarmed
-  condition: []
-  action:
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.vacation_mode
-  mode: single
 - id: '1632574228600'
   alias: turn on vacation mode
   description: ''
@@ -324,4 +311,42 @@
   - service: input_boolean.turn_on
     target:
       entity_id: input_boolean.vacation_mode
+  mode: single
+- id: '1633974301950'
+  alias: Turn on Modem
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time_pattern
+    minutes: /15
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id:
+      - switch.modem
+  mode: single
+- id: '1634007116101'
+  alias: Slow internet speed
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.speedtest_download
+    below: '160'
+  - platform: numeric_state
+    entity_id: sensor.speedtest_upload
+    below: '8'
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      message: Low internet speed detected
+  - service: script.restart_modem
+  - delay:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: speedtestdotnet.speedtest
   mode: single

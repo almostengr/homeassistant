@@ -1,0 +1,4 @@
+reboot_router:
+  url: http://192.168.57.118:8051/api/router/rebootrouter
+  method: POST
+  content_type: "application/json"

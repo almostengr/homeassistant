@@ -4,3 +4,16 @@
   scan_interval: 300
   method: GET
   value_template: "{{ (value_json.fahrenheit | int) }}"
+
+- platform: rest
+  resource: http://192.168.57.118:8051/api/router/uptime
+  name: "Router Uptime"
+  scan_interval: 600
+  method: GET
+  value_template: "{{ (value_json.state) }}"
+
+- platform: rest
+  resource: http://192.168.57.118:8051/api/router/wifidevices
+  name: "Check Wifi Devices"
+  method: GET
+  scan_interval: 600
