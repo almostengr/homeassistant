@@ -2,3 +2,7 @@ reboot_router:
   url: http://192.168.57.118:8051/api/router/rebootrouter
   method: POST
   content_type: "application/json"
+update_hd_home_run:
+  url: http://192.168.57.108/api/hdhomerun/update
+  method: POST
+  content_type: "application/json"
