@@ -12,4 +12,4 @@ Those tutorials are available to watch on my
 [Home Assistant Playlist](https://www.youtube.com/playlist?list=PLaAJ0fv0d9WMOGZmLnghrG321kVueGfuL).
 
 More information about this project is available on my website at
-[https://thealmostengineer.com/homeassistant](https://thealmostengineer.com/homeassistant).
+[https://thealmostengineer.com/projects/home-assistant/](https://thealmostengineer.com/projects/home-assistant/).
